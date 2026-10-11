@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Моисей Абрамович Корец</title>
+  <meta name="description" content="Моисей Абрамович Корец, 1908–1984. Физик, узник, популяризатор науки. Семейная страница.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Frank+Ruhl+Libre:wght@500;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,620;1,7..72,400&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect fill='%23f7f1e6' width='32' height='32'/%3E%3Ctext x='16' y='23' text-anchor='middle' font-family='Georgia' font-size='18' fill='%236e2a24'%3EМ%3C/text%3E%3C/svg%3E">
+  <style>
+    :root {
+      --paper: #f7f1e6;
+      --desk: #e6dccb;
+      --ink: #221c18;
+      --muted: #5c534a;
+      --line: #ddcfc0;
+      --seal: #6e2a24;
+      --seal-soft: #f3e4dc;
+      --max: 68rem;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--desk);
+      color: var(--ink);
+      font-family: Literata, "Palatino Linotype", Palatino, Georgia, serif;
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      font-optical-sizing: auto;
+    }
+
+    ::selection { background: #ead9c4; }
+
+    a {
+      color: inherit;
+      text-decoration-color: #c4b49a;
+      text-underline-offset: 0.18em;
+    }
+
+    a:hover { text-decoration-color: var(--seal); }
+
+    a:focus-visible {
+      outline: 2px solid var(--seal);
+      outline-offset: 3px;
+    }
+
+    .skip {
+      position: absolute;
+      left: 1rem;
+      top: -3rem;
+      background: var(--ink);
+      color: var(--paper);
+      padding: 0.4rem 0.7rem;
+    }
+
+    .skip:focus { top: 0.6rem; }
+
+    .sheet {
+      max-width: var(--max);
+      margin: 0 auto;
+      background: var(--paper);
+      min-height: 100vh;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1.5rem;
+      padding: 0.9rem 6vw;
+      background: rgba(247, 241, 230, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand {
+      font-family: "Cormorant Garamond", "Palatino Linotype", serif;
+      font-size: 1.25rem;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem 1.15rem;
+      font-size: 0.92rem;
+    }
+
+    nav a { text-decoration: none; color: var(--muted); }
+    nav a:hover { color: var(--ink); }
+
+    main { padding: 0 6vw 5rem; }
+
+    section { scroll-margin-top: 4.2rem; }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(220px, 0.72fr);
+      gap: 3.5rem;
+      align-items: start;
+      padding: 3.2rem 0 2.6rem;
+    }
+
+    .kicker {
+      margin: 0 0 1.1rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+      letter-spacing: 0.04em;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: "Cormorant Garamond", "Palatino Linotype", serif;
+      font-weight: 500;
+      font-size: clamp(3.4rem, 7vw, 5.7rem);
+      line-height: 0.88;
+      letter-spacing: -0.02em;
+    }
+
+    .hebrew-name {
+      margin: 1.15rem 0 0;
+      font-family: "Frank Ruhl Libre", David, "Times New Roman", serif;
+      font-size: 1.85rem;
+      font-weight: 500;
+      line-height: 1.2;
+      color: var(--muted);
+      text-align: left;
+    }
+
+    .yahrzeit {
+      display: inline-block;
+      margin: 1.15rem 0 0;
+      padding: 0.15rem 0.55rem 0.2rem;
+      background: var(--seal-soft);
+      color: var(--seal);
+      font-family: "Frank Ruhl Libre", David, "Times New Roman", serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+
+    .lede {
+      max-width: 38rem;
+      margin: 1.6rem 0 0;
+      font-size: 1.15rem;
+      line-height: 1.6;
+    }
+
+    figure { margin: 2.6rem 0 0; }
+
+    figure img {
+      display: block;
+      width: min(100%, 320px);
+      margin-left: auto;
+      height: auto;
+      box-shadow: 0 18px 40px rgba(50, 36, 22, 0.14);
+    }
+
+    figcaption {
+      margin-top: 0.7rem;
+      text-align: right;
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    h2 {
+      margin: 0 0 0.4rem;
+      font-family: "Cormorant Garamond", "Palatino Linotype", serif;
+      font-weight: 500;
+      font-size: clamp(2.2rem, 4vw, 3rem);
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+
+    .section-note {
+      margin: 0 0 0.4rem;
+      max-width: 40rem;
+      color: var(--muted);
+    }
+
+    .life, .voice, .archive { padding-top: 3.2rem; }
+
+    .event {
+      display: grid;
+      grid-template-columns: 7.2rem minmax(0, 1fr);
+      gap: 1.4rem;
+      padding: 1.25rem 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .event time {
+      color: var(--seal);
+      font-family: "Cormorant Garamond", "Palatino Linotype", serif;
+      font-size: 1.65rem;
+      font-weight: 600;
+      line-height: 1.15;
+      padding-top: 0.15rem;
+    }
+
+    .event p { margin: 0; }
+    .event p + p { margin-top: 0.55rem; }
+
+    .quote {
+      margin: 1.4rem 0 0;
+      padding: 0;
+      border: 0;
+    }
+
+    .quote p {
+      margin: 0;
+      font-family: "Cormorant Garamond", "Palatino Linotype", serif;
+      font-size: clamp(1.55rem, 2.4vw, 1.95rem);
+      font-style: italic;
+      font-weight: 500;
+      line-height: 1.35;
+    }
+
+    .quote footer {
+      margin-top: 0.7rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-style: normal;
+    }
+
+    .quote.long p {
+      font-family: Literata, "Palatino Linotype", Georgia, serif;
+      font-size: 1.12rem;
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.65;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.2rem 3rem;
+      padding-top: 1.3rem;
+      border-top: 1px solid var(--line);
+    }
+
+    .split h3 {
+      margin: 0 0 0.45rem;
+      font-family: "Cormorant Garamond", "Palatino Linotype", serif;
+      font-size: 1.7rem;
+      font-weight: 500;
+    }
+
+    .split p { margin: 0; }
+    .split p + p { margin-top: 0.7rem; }
+
+    .catalog {
+      list-style: none;
+      margin: 1.2rem 0 0;
+      padding: 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .catalog li {
+      display: grid;
+      grid-template-columns: 8.5rem minmax(0, 1fr);
+      gap: 1rem;
+      padding: 0.85rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .catalog span {
+      color: var(--seal);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .groups {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem 3rem;
+      margin-top: 1.4rem;
+    }
+
+    .groups h3 {
+      margin: 0 0 0.6rem;
+      font-size: 0.82rem;
+      font-weight: 620;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .groups ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .groups li {
+      padding: 0.55rem 0;
+      border-top: 1px solid var(--line);
+    }
+
+    footer.colophon {
+      margin-top: 3.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    footer.colophon p { margin: 0.35rem 0; }
+
+    @media (max-width: 800px) {
+      header { align-items: flex-start; flex-direction: column; gap: 0.35rem; padding: 0.8rem 1.25rem; }
+      main { padding: 0 1.25rem 3.5rem; }
+      .hero { grid-template-columns: 1fr; gap: 1.8rem; padding-top: 2rem; }
+      figure { margin-top: 0.4rem; }
+      figure img { margin-left: 0; width: min(100%, 260px); }
+      figcaption { text-align: left; }
+      .event, .catalog li { grid-template-columns: 1fr; gap: 0.15rem; }
+      .split, .groups { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+
+    @media print {
+      body { background: white; }
+      .sheet { box-shadow: none; }
+      header { position: static; background: white; }
+      figure img { box-shadow: none; }
+      a { text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#life">К содержанию</a>
+  <div class="sheet">
+    <header>
+      <a class="brand" href="#top">Корец</a>
+      <nav aria-label="Разделы">
+        <a href="#life">Жизнь</a>
+        <a href="#family">Семья</a>
+        <a href="#poems">Стихи</a>
+        <a href="#papers">Дело и письма</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="name">
+        <div>
+          <p class="kicker">Севастополь · Москва · 1908–1984</p>
+          <h1 id="name">Моисей<br>Абрамович<br>Корец</h1>
+          <p class="hebrew-name" lang="he">משה אברמוביץ קורץ</p>
+          <p class="yahrzeit" lang="he">ט״ז באדר א׳ תשמ״ד</p>
+          <p class="lede">Физик из круга Льва Ландау. Четырнадцать лет лагерей, ссылка в Инте, потом журнал «Природа» и стихи, написанные на нарах.</p>
+        </div>
+        <figure>
+          <img src="images/moisey.jpg" alt="Портрет Моисея Абрамовича Кореца: молодой человек в круглых очках, тёмном костюме и галстуке. Снимок помят и треснут.">
+          <figcaption>Семейная фотография</figcaption>
+        </figure>
+      </section>
+
+      <section class="life" id="life" aria-labelledby="life-title">
+        <h2 id="life-title">Жизнь</h2>
+        <p class="section-note">Даты сверены с его собственными показаниями, с делом УФТИ и с еврейским календарём.</p>
+
+        <article class="event">
+          <time datetime="1908">1908</time>
+          <div>
+            <p>Родился 12 октября в Севастополе. Отец — Абрам-Ицхак Моисеевич Корец, часовщик из местечка Тальное Уманьской губернии. Мать — Слава (Симха) Филипповна, урождённая Эйсурович.</p>
+            <p>Детство провёл в Севастополе и в Симферополе.</p>
+          </div>
+        </article>
+
+        <article class="event">
+          <time datetime="1924">1924</time>
+          <div>
+            <p>В 1924 году уехал в Москву. Работал переплётчиком, кондитером, грузчиком.</p>
+            <p>С 1927 года учился в Московском индустриально-педагогическом техникуме. В 1929 перевёлся на физмех Ленинградского политехнического института и пробыл там до 1932 года. Слушал лекции Льва Ландау и Матвея Бронштейна.</p>
+          </div>
+        </article>
+
+        <article class="event">
+          <time datetime="1932">1932</time>
+          <div>
+            <p>Свердловск. Позже он сам написал следователю: «научный сотрудник в Институте физики».</p>
+          </div>
+        </article>
+
+        <article class="event">
+          <time datetime="1935-03-13">1935</time>
+          <div>
+            <p>13 марта по приглашению Ландау приехал в Харьков, в теоретический отдел Украинского физико-технического института. По совместительству ассистент Ландау в Харьковском университете. Ландау писал, что Корец «успел проявить себя как способный молодой физик-теоретик».</p>
+            <p>14 ноября его уволили «за сокрытие социального происхождения». 28 ноября арестовали по обвинению в агитации против оборонных заказов. 26 февраля 1936 года суд дал полтора года. 7 апреля приговор отменили, 25 июля дело № 7771 закрыли за недостатком доказательств.</p>
+          </div>
+        </article>
+
+        <article class="event">
+          <time datetime="1937">1937</time>
+          <div>
+            <p>Вслед за Ландау переехал в Москву. Кафедра физики МГПИ имени Бубнова и журнал «Техника молодёжи».</p>
+          </div>
+        </article>
+
+        <article class="event">
+          <time datetime="1938-04-27">1938</time>
+          <div>
+            <p>В апреле вместе с Ландау написал листовку против сталинского режима. 27 апреля арестован вместе с Ландау и Юрием Румером. Следствие шло в Лефортове. 25 ноября 1939 года военный трибунал дал десять лет по статье 58, пункты 10 и 11. Обвинение в шпионаже суд снял.</p>
+            <p>Срок отбывал в Печорлаге. В 1942 году добавили ещё десять лет: в начале 1941-го он говорил, что Германия может напасть на Советский Союз.</p>
+          </div>
+        </article>
+
+        <article class="event">
+          <time datetime="1952-03-18">1952</time>
+          <div>
+            <p>18 марта амнистирован. В лагере прошли четырнадцать лет. До 1958 года — ссылка в Инте, Коми АССР. Работал старшим инженером электросети на комбинате «Интауголь».</p>
+            <p>В 1956 году Ландау написал в военную прокуратуру в его защиту. По делу 1938 года в реабилитации отказали. Её дали только после смерти, в 1990-м. По делу 1942 года реабилитировали в 1958-м.</p>
+          </div>
+        </article>
+
+        <article class="event">
+          <time datetime="1958">1958</time>
+          <div>
+            <p>Вернулся в Москву. Работал в журнале «Природа», писал книги под псевдонимом Карев. Дружба с Ландау длилась до смерти Ландау в 1968 году.</p>
+          </div>
+        </article>
+
+        <article class="event">
+          <time datetime="1973-12">1973</time>
+          <div>
+            <p>В декабре подал документы на выезд в Израиль вместе с семьёй дочери Наташи и её мужа, физика Юрия Гольфанда. Разрешения не было: на работах зятя стоял гриф секретности. Семья уехала в 1990 году. Он до этого дня не дожил.</p>
+          </div>
+        </article>
+
+        <article class="event">
+          <time datetime="1984-02-19">1984</time>
+          <div>
+            <p>Умер 19 февраля в Москве, семидесяти пяти лет. Йорцайт — 16 адара I 5744 года.</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="voice" id="family" aria-labelledby="family-title">
+        <h2 id="family-title">Семья</h2>
+        <p class="section-note">Фамилия пришла из города Корец. Так он сам объяснил это внуку.</p>
+        <div class="split">
+          <div>
+            <h3>Откуда Корец</h3>
+            <p>Дед по отцу переехал из города Корец в Тальное, Уманьского уезда Киевской губернии, и там женился. В местечке его звали реб Мойше фун Корец.</p>
+            <p>Когда при Александре III местечковым евреям записывали фамилии, пристав внёс его как Мойше Корецкий. Он умер до рождения внука, и внука назвали его именем.</p>
+            <p>Отец, Аврум-Ицхак, в пятнадцать лет уехал в Одессу учеником к часовщику. В паспорт пристав вписал уличное прозвище: Абрам Моисеевич Корец.</p>
+          </div>
+          <div>
+            <h3>Дочери</h3>
+            <p>Старшая дочь — Ирина, в детстве Эсфирь, родилась в 1929 году. Ей он писал из лагеря в Иваново: четыре года не видел и уже не представлял, какая она.</p>
+            <p>Младшая, Наташа, родилась в лагере в начале 1946 года. Её муж — физик Юрий Абрамович Гольфанд. В старой записи на сайте фамилия была спутана с Гельфондом.</p>
+          </div>
+        </div>
+        <blockquote class="quote">
+          <p lang="ru">«Дорогой мой внук, Миша! Шалом!»</p>
+          <footer>Из письма внуку. <a href="pages/письмовнуку.html">Полный текст</a></footer>
+        </blockquote>
+      </section>
+
+      <section class="voice" id="poems" aria-labelledby="poems-title">
+        <h2 id="poems-title">Стихи</h2>
+        <p class="section-note">1938–1947. Тюрьма, лагерь, барак. Бумаги было мало, табака не было, стихи он прятал где придётся.</p>
+        <blockquote class="quote long">
+          <p>Среди ужасов войны, опустошавшей неоднократно его маленькую, но горячо любимую родину, в огне пожарищ, уничтоживших его последнее имущество, среди смертей близких и дорогих людей, обремененный многочисленной семьей, удрученный тяжелой болезнью своей любимой подруги, сгибаясь под ударами нужды и голода, забытый органист провинциального костела, великий Иоганн Себастьян Бах, творил свои могучие, полные радости и прославления жизни, бессмертные произведения, которые сотни лет будят в душах людей бодрость, стремление к великому и безграничную любовь ко всепобеждающей жизни.</p>
+          <footer>Моисей Корец. «Бах», 2 ноября 1946</footer>
+        </blockquote>
+        <ul class="catalog">
+          <li><span>1938</span> <a href="pages/1938.html">«Кто виноват?»</a></li>
+          <li><span>1940</span> <a href="pages/ночь.html">«Ночь». Наташе</a></li>
+          <li><span>1946</span> <a href="pages/другу.html">«Другу». Ф. Прокопову</a></li>
+          <li><span>1946</span> <a href="pages/жрец.html">«Жрец»</a></li>
+          <li><span>1946</span> <a href="pages/с-рус.html">«С. Рус»</a></li>
+          <li><span>1946</span> <a href="pages/бах.html">«Бах»</a></li>
+          <li><span>1938–47</span> <a href="pages/стихиразныхлет.html">Все стихи этих лет</a></li>
+          <li><span>1948</span> <a href="pages/хагада.html">«Хагода»</a></li>
+        </ul>
+      </section>
+
+      <section class="archive" id="papers" aria-labelledby="papers-title">
+        <h2 id="papers-title">Дело и письма</h2>
+        <p class="section-note">Тексты скопированы с семейного сайта, снимки дел и фотографии — из Диска владельца. На Google Sites опубликована прежняя конвертация; исправленная биография — на этой странице.</p>
+        <div class="groups">
+          <div>
+            <h3>Дело УФТИ, 1935</h3>
+            <ul>
+              <li><a href="pages/1935.html">Опись дела</a></li>
+              <li><a href="pages/ufti1.html">Постановление о привлечении, 27 ноября</a></li>
+              <li><a href="pages/ufti2.html">Санкция на арест, 27 ноября</a></li>
+              <li><a href="pages/ufti6.html">Допрос Кореца, 2 декабря</a></li>
+              <li><a href="pages/ugti8.html">Допрос Пятигорского, 5 декабря</a></li>
+              <li><a href="pages/ufti11.html">Допрос Давидовича, 15 декабря</a></li>
+              <li><a href="pages/ufti5.html">Характеристика из УФТИ</a></li>
+              <li><a href="pages/ufti4.html">Заседание в институте</a></li>
+              <li><a href="pages/ufti13.html">Обвинительное заключение</a></li>
+              <li><a href="pages/ufti15.html">Приговор, 26 февраля 1936</a></li>
+              <li><a href="pages/ufti162.html">Прекращение дела, 25 июля 1936</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3>Дело 1938 года</h3>
+            <ul>
+              <li><a href="pages/дело1938года.html">Опись разделов</a></li>
+              <li><a href="pages/дело1938года2.html">Арест</a></li>
+              <li><a href="pages/листовка.html">Листовка</a></li>
+              <li><a href="pages/дело1938года3.html">Следствие</a></li>
+              <li><a href="pages/допросыипоказания.html">Допросы и показания</a></li>
+              <li><a href="pages/обвинительноезаключениеисуд.html">Обвинительное заключение и суд</a></li>
+              <li><a href="pages/пересмотрделав1956году.html">Пересмотр 1956 года</a></li>
+              <li><a href="pages/реабилитация.html">Реабилитация</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3>Письма</h3>
+            <ul>
+              <li><a href="pages/pisma_main.html">Письма из лагеря, все</a></li>
+              <li><a href="pages/pisma1.html">1942. Жене и Ире, в Иваново</a></li>
+              <li><a href="pages/pisma7.html">20 ноября 1944. Дочери</a></li>
+              <li><a href="pages/pisma9.html">31 декабря 1944. Шуре</a></li>
+              <li><a href="pages/письмовнуку.html">Письмо внуку Мише</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3>Ещё</h3>
+            <ul>
+              <li><a href="pages/документы.html">Документы</a></li>
+              <li><a href="pages/воспоминания.html">Воспоминания</a></li>
+              <li><a href="pages/ssylka.html">Воспоминания о ссылке</a></li>
+              <li><a href="pages/статьи.html">Статьи</a></li>
+              <li><a href="pages/фотографии.html">Фотографии</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <footer class="colophon">
+        <p>Семейная страница. Прежняя версия: <a href="https://sites.google.com/site/michaelkjerusalem/moisey_korets">michaelkjerusalem</a>.</p>
+        <p>Письма и поправки: <a href="mailto:michaelk.jerusalem@gmail.com">michaelk.jerusalem@gmail.com</a></p>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

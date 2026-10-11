@@ -1,0 +1,249 @@
+:root {
+  --paper: #f7f1e6;
+  --desk: #e6dccb;
+  --ink: #221c18;
+  --muted: #5c534a;
+  --line: #ddcfc0;
+  --seal: #6e2a24;
+  --seal-soft: #f3e4dc;
+  --max: 68rem;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--desk);
+  color: var(--ink);
+  font-family: Literata, "Palatino Linotype", Palatino, Georgia, serif;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+
+::selection { background: #ead9c4; }
+
+a {
+  color: inherit;
+  text-decoration-color: #c4b49a;
+  text-underline-offset: 0.18em;
+}
+
+a:hover { text-decoration-color: var(--seal); }
+
+a:focus-visible {
+  outline: 2px solid var(--seal);
+  outline-offset: 3px;
+}
+
+.skip {
+  position: absolute;
+  left: 1rem;
+  top: -3rem;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.4rem 0.7rem;
+}
+
+.skip:focus { top: 0.6rem; }
+
+.sheet {
+  max-width: min(var(--max), 100%);
+  margin: 0 auto;
+  background: var(--paper);
+  min-height: 100vh;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1.5rem;
+  padding: 0.9rem 6vw;
+  background: rgba(247, 241, 230, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  font-family: "Cormorant Garamond", "Palatino Linotype", Palatino, serif;
+  font-size: 1.25rem;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.15rem;
+  min-width: 0;
+  max-width: 100%;
+  font-size: 0.92rem;
+}
+
+nav a { text-decoration: none; color: var(--muted); }
+nav a:hover { color: var(--ink); }
+
+main {
+  padding: 2.2rem 6vw 4rem;
+  max-width: 46rem;
+}
+
+h1 {
+  margin: 0 0 1.2rem;
+  font-family: "Cormorant Garamond", "Palatino Linotype", Palatino, serif;
+  font-weight: 500;
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.prose p { margin: 0 0 0.9rem; }
+
+.verse p {
+  margin: 0.15rem 0;
+  max-width: 38rem;
+}
+
+.prose p.toc, .verse p.toc { margin: 0.28rem 0; }
+
+.prose p.item, .verse p.item { margin: 0.35rem 0; }
+
+.prose p.year, .verse p.year {
+  margin: 1.35rem 0 0.35rem;
+  font-family: "Cormorant Garamond", "Palatino Linotype", Palatino, serif;
+  font-size: 1.45rem;
+  line-height: 1.15;
+}
+
+.file {
+  color: var(--muted);
+  font-size: 0.82rem;
+  margin-left: 0.35rem;
+}
+
+.file img,
+.gallery img {
+  display: block;
+  max-width: min(100%, 720px);
+  height: auto;
+  margin: 0.55rem 0 0.25rem;
+  background: #fff;
+  box-shadow: 0 1px 5px rgba(34, 28, 24, 0.18);
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.25rem 1rem;
+  margin: 1.2rem 0 0.4rem;
+}
+
+.gallery figure { margin: 0; }
+
+.gallery img { max-width: 100%; }
+
+.gallery figcaption {
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.note {
+  margin-top: 1.5rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+article.doc {
+  margin: 0 0 2.6rem;
+}
+
+article.doc h2 {
+  margin: 0 0 0.7rem;
+  font-family: "Cormorant Garamond", "Palatino Linotype", Palatino, serif;
+  font-weight: 500;
+  font-size: 1.55rem;
+  line-height: 1.2;
+}
+
+article.doc figure {
+  margin: 0;
+}
+
+article.doc figure img {
+  display: block;
+  max-width: min(100%, 720px);
+  height: auto;
+  margin: 0.35rem 0 0.3rem;
+  background: #fff;
+  box-shadow: 0 1px 5px rgba(34, 28, 24, 0.18);
+}
+
+.transcript {
+  margin: 0.85rem 0 0;
+  padding: 0.15rem 0 0.15rem 0.9rem;
+  border-left: 2px solid var(--line);
+  white-space: pre-wrap;
+  font-size: 0.98rem;
+  line-height: 1.55;
+}
+
+.transcript + .transcript {
+  margin-top: 1.3rem;
+}
+
+.shaky {
+  margin: 0.45rem 0 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+main figure { margin: 0 0 1.4rem; }
+
+main figure img {
+  display: block;
+  max-width: min(100%, 420px);
+  height: auto;
+}
+
+footer.colophon {
+  margin-top: 2.6rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+footer.colophon p { margin: 0.3rem 0; }
+
+@media (max-width: 800px) {
+  header {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 0.8rem 1.25rem;
+  }
+  nav {
+    display: block;
+    width: 100%;
+  }
+  nav a {
+    display: inline-block;
+    margin: 0.15rem 0.85rem 0.15rem 0;
+  }
+  main { padding: 1.5rem 1.25rem 3rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+@media print {
+  body { background: white; }
+  header { position: static; }
+  a { text-decoration: none; }
+}
