@@ -134,12 +134,26 @@ h1 {
   line-height: 1.45;
 }
 
+a.fn,
+ol.footnotes a.back {
+  scroll-margin-top: 4.5rem;
+}
+
 a.fn {
   font-size: 0.75em;
   line-height: 0;
   text-decoration: none;
   vertical-align: super;
 }
+
+ol.footnotes a.back {
+  color: var(--seal);
+  text-decoration: none;
+  margin-right: 0.35rem;
+}
+
+a.fn:target,
+ol.footnotes li:target { background: rgba(120, 84, 40, 0.08); }
 
 ol.footnotes {
   margin: 2.2rem 0 0;
