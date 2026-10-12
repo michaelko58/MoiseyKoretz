@@ -127,6 +127,14 @@ h1 {
 
 .prose p.toc, .verse p.toc { margin: 0.28rem 0; }
 
+.prose p.desc, .verse p.desc {
+  margin: 0 0 0.75rem;
+  max-width: 38rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
 .verse p.continue,
 .prose p.continue {
   margin: 2rem 0 0;
