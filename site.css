@@ -106,6 +106,14 @@ h1 {
 
 .prose p { margin: 0 0 0.9rem; }
 
+.prose h2 {
+  margin: 1.7rem 0 0.35rem;
+  font-family: "Cormorant Garamond", "Palatino Linotype", Palatino, serif;
+  font-weight: 500;
+  font-size: 1.55rem;
+  line-height: 1.15;
+}
+
 .verse p {
   margin: 0.15rem 0;
   max-width: 38rem;
