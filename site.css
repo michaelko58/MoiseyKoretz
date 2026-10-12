@@ -236,6 +236,10 @@ ol.footnotes li {
   font-size: 0.88rem;
 }
 
+main.wide { max-width: none; }
+
+main.wide > p { max-width: 40rem; }
+
 .note {
   margin-top: 1.5rem;
   color: var(--muted);
