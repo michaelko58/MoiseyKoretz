@@ -218,6 +218,8 @@ ol.footnotes li {
 
 .gallery figure { margin: 0; }
 
+.gallery a { display: block; color: inherit; text-decoration: none; }
+
 .gallery img { max-width: 100%; }
 
 .gallery figcaption {
@@ -247,9 +249,12 @@ article.doc figure {
   margin: 0;
 }
 
+article.doc figure a { display: block; }
+
 article.doc figure img {
   display: block;
-  max-width: min(100%, 720px);
+  width: auto;
+  max-width: 100%;
   height: auto;
   margin: 0.35rem 0 0.3rem;
   background: #fff;
