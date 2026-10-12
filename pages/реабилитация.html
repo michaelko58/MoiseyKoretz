@@ -25,8 +25,9 @@
         <a href="фотографии.html">Фотографии</a>
         <a href="воспоминания.html">Воспоминания</a>
         <a href="статьи.html">Публикации</a>
-        <a href="документы.html">Документы</a>
+        <a href="документы.html" aria-current="page">Документы</a>
       </nav>
+      <script>(function(){var n=document.querySelector("header nav"),a=n&&n.querySelector("[aria-current]");if(!n)return;function f(){n.classList.toggle("scrolled",n.scrollLeft>0)}n.addEventListener("scroll",f,{passive:true});if(a&&n.scrollWidth>n.clientWidth)n.scrollLeft=a.offsetLeft-n.offsetLeft-24;f();})();</script>
     </header>
     
     <main id="text" class="verse">
