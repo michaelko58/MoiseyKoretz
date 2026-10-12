@@ -111,6 +111,16 @@ h1 {
 
 .prose p.toc, .verse p.toc { margin: 0.28rem 0; }
 
+.verse p.continue,
+.prose p.continue {
+  margin: 2rem 0 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  max-width: none;
+  font-family: "Cormorant Garamond", "Palatino Linotype", Palatino, serif;
+  font-size: 1.35rem;
+}
+
 .prose p.item, .verse p.item { margin: 0.35rem 0; }
 
 .prose p.year, .verse p.year {

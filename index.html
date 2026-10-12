@@ -7,7 +7,7 @@
   <meta name="description" content="Моисей Абрамович Корец, 1908–1984. Физик, узник, популяризатор науки. Семейная страница.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Frank+Ruhl+Libre:wght@500;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,620;1,7..72,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,620;1,7..72,400&display=swap" rel="stylesheet">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect fill='%23f7f1e6' width='32' height='32'/%3E%3Ctext x='16' y='23' text-anchor='middle' font-family='Georgia' font-size='18' fill='%236e2a24'%3EМ%3C/text%3E%3C/svg%3E">
   <style>
     :root {
@@ -17,7 +17,6 @@
       --muted: #5c534a;
       --line: #ddcfc0;
       --seal: #6e2a24;
-      --seal-soft: #f3e4dc;
       --max: 68rem;
     }
 
@@ -62,6 +61,7 @@
     .skip:focus { top: 0.6rem; }
 
     .sheet {
+      width: 100%;
       max-width: var(--max);
       margin: 0 auto;
       background: var(--paper);
@@ -91,8 +91,11 @@
 
     nav {
       display: flex;
+      flex: 1;
       flex-wrap: wrap;
+      justify-content: flex-end;
       gap: 0.35rem 1.15rem;
+      min-width: 0;
       font-size: 0.92rem;
     }
 
@@ -125,28 +128,6 @@
       font-size: clamp(3.4rem, 7vw, 5.7rem);
       line-height: 0.88;
       letter-spacing: -0.02em;
-    }
-
-    .hebrew-name {
-      margin: 1.15rem 0 0;
-      font-family: "Frank Ruhl Libre", David, "Times New Roman", serif;
-      font-size: 1.85rem;
-      font-weight: 500;
-      line-height: 1.2;
-      color: var(--muted);
-      text-align: left;
-    }
-
-    .yahrzeit {
-      display: inline-block;
-      margin: 1.15rem 0 0;
-      padding: 0.15rem 0.55rem 0.2rem;
-      background: var(--seal-soft);
-      color: var(--seal);
-      font-family: "Frank Ruhl Libre", David, "Times New Roman", serif;
-      font-size: 1.25rem;
-      font-weight: 700;
-      line-height: 1.4;
     }
 
     .lede {
@@ -316,7 +297,16 @@
     footer.colophon p { margin: 0.35rem 0; }
 
     @media (max-width: 800px) {
-      header { align-items: flex-start; flex-direction: column; gap: 0.35rem; padding: 0.8rem 1.25rem; }
+      header { align-items: stretch; flex-direction: column; gap: 0.45rem; padding: 0.8rem 1.25rem; width: 100%; max-width: 100%; }
+      nav {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        justify-content: start;
+        gap: 0.35rem 0.8rem;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+      }
       main { padding: 0 1.25rem 3.5rem; }
       .hero { grid-template-columns: 1fr; gap: 1.8rem; padding-top: 2rem; }
       figure { margin-top: 0.4rem; }
@@ -349,6 +339,12 @@
         <a href="#family">Семья</a>
         <a href="#poems">Стихи</a>
         <a href="#papers">Дело и письма</a>
+        <a href="pages/1935.html">Дело 1935</a>
+        <a href="pages/дело1938года.html">Дело 1938</a>
+        <a href="pages/письма.html">Письма</a>
+        <a href="pages/хагада.html">Хагода</a>
+        <a href="pages/фотографии.html">Фотографии</a>
+        <a href="pages/документы.html">Документы</a>
       </nav>
     </header>
 
@@ -357,8 +353,6 @@
         <div>
           <p class="kicker">Севастополь · Москва · 1908–1984</p>
           <h1 id="name">Моисей<br>Абрамович<br>Корец</h1>
-          <p class="hebrew-name" lang="he">משה אברמוביץ קורץ</p>
-          <p class="yahrzeit" lang="he">ט״ז באדר א׳ תשמ״ד</p>
           <p class="lede">Физик из круга Льва Ландау. Четырнадцать лет лагерей, ссылка в Инте, потом журнал «Природа» и стихи, написанные на нарах.</p>
         </div>
         <figure>
@@ -460,7 +454,8 @@
           <div>
             <h3>Дочери</h3>
             <p>Старшая дочь — Ирина, в детстве Эсфирь, родилась в 1929 году. Ей он писал из лагеря в Иваново: четыре года не видел и уже не представлял, какая она.</p>
-            <p>Младшая, Наташа, родилась в лагере в начале 1946 года. Её муж — физик Юрий Абрамович Гольфанд. В старой записи на сайте фамилия была спутана с Гельфондом.</p>
+            <p>Средняя — Галочка. <a href="pages/pisnma10.html">26 апреля 1945 года</a> он писал Шуре из Межога, что не знает, жива ли она и где. <a href="pages/ssylka.html">Наташа вспоминает</a> снимок 1956 года в Инте: отец обнимает двух дочерей, а Галочки, средней, тогда ещё не нашёл. Летом они собирались в Кисловодск, чтобы найти и её.</p>
+            <p>Третья, Наташа, родилась в лагере в начале 1946 года. Её муж — физик Юрий Абрамович Гольфанд.</p>
           </div>
         </div>
         <blockquote class="quote">
