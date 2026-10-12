@@ -292,6 +292,8 @@
       border-top: 1px solid var(--line);
     }
 
+    .split.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+
     .split h3 {
       margin: 0 0 0.45rem;
       font-family: "Cormorant Garamond", "Palatino Linotype", serif;
@@ -392,7 +394,7 @@
       figure img { margin-left: 0; width: min(100%, 260px); }
       figcaption { text-align: left; }
       .event, .catalog li { grid-template-columns: 1fr; gap: 0.15rem; }
-      .split, .groups { grid-template-columns: 1fr; }
+      .split, .split.cols-3, .groups { grid-template-columns: 1fr; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -419,6 +421,7 @@
         <a href="pages/дело1938года.html">Дело 1938</a>
         <a href="pages/письма.html">Письма</a>
         <a href="pages/стихи.html">Стихи</a>
+        <a href="pages/фотографии.html">Фотографии</a>
         <a href="pages/документы.html">Документы</a>
       </nav>
     </header>
@@ -549,8 +552,8 @@
 
       <section class="archive" id="papers" aria-labelledby="papers-title">
         <h2 id="papers-title">Дело и письма</h2>
-        <p class="section-note">Тексты скопированы с семейного сайта, снимки дел и фотографии — из Диска владельца. На Google Sites опубликована прежняя конвертация; исправленная биография — на этой странице. Описи разделов лежат внутри каждого дела.</p>
-        <div class="split">
+        <p class="section-note">Описи разделов лежат внутри каждого дела.</p>
+        <div class="split cols-3">
           <div>
             <h3>Дело</h3>
             <p><a href="pages/листовка.html">Листовка</a> апреля 1938 года.</p>
@@ -561,7 +564,10 @@
             <h3>Письма</h3>
             <p><a href="pages/pisma1.html">1942. Жене и Ире</a>, в Иваново.</p>
             <p class="more"><a href="pages/письма.html">Все письма</a></p>
-            <p class="more"><a href="pages/фотографии.html">Фотографии</a></p>
+          </div>
+          <div>
+            <h3>Фотографии</h3>
+            <p><a href="pages/фотографии.html">Снимки</a></p>
           </div>
         </div>
       </section>
@@ -600,7 +606,6 @@
       </section>
 
       <footer class="colophon">
-        <p>Семейная страница. Прежняя версия: <a href="https://sites.google.com/site/michaelkjerusalem/moisey_korets">michaelkjerusalem</a>.</p>
         <p>Письма и поправки: <a href="mailto:michaelk.jerusalem@gmail.com">michaelk.jerusalem@gmail.com</a></p>
       </footer>
     </main>
