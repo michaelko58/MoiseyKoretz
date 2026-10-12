@@ -168,6 +168,40 @@
 
     figure.spot figcaption { text-align: left; }
 
+    figure.paper { margin: 1.25rem 0 0.35rem; }
+
+    figure.paper > a { display: block; text-decoration: none; }
+
+    figure.paper img {
+      width: 100%;
+      max-width: 680px;
+      margin-left: 0;
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: 0 16px 36px rgba(50, 36, 22, 0.13);
+    }
+
+    figure.paper figcaption {
+      text-align: left;
+      max-width: 42rem;
+    }
+
+    .exhibits {
+      display: grid;
+      grid-template-columns: minmax(0, 1.45fr) minmax(180px, 0.72fr);
+      gap: 1.15rem 1.6rem;
+      align-items: start;
+      margin-top: 0.35rem;
+    }
+
+    .event .exhibits { grid-column: 1 / -1; }
+
+    .exhibits figure.paper { margin: 0; min-width: 0; }
+
+    .exhibits figure.paper img { max-width: 640px; }
+
+    .exhibits figure.paper.face img { max-width: 420px; }
+
     h2 {
       margin: 0 0 0.4rem;
       font-family: "Cormorant Garamond", "Palatino Linotype", serif;
@@ -408,7 +442,7 @@
       figure img { margin-left: 0; width: min(100%, 260px); }
       figcaption { text-align: left; }
       .event, .catalog li { grid-template-columns: 1fr; gap: 0.15rem; }
-      .split, .split.cols-3, .groups { grid-template-columns: 1fr; }
+      .split, .split.cols-3, .groups, .exhibits { grid-template-columns: 1fr; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -419,7 +453,7 @@
       body { background: white; }
       .sheet { box-shadow: none; }
       header { position: static; background: white; }
-      figure img { box-shadow: none; }
+      figure img, figure.paper img { box-shadow: none; }
       a { text-decoration: none; }
     }
   </style>
@@ -463,6 +497,10 @@
           <p>Великое дело Октябрьской революции подло предано. Страна затоплена потоками крови и грязи.</p>
           <footer><a href="pages/листовка.html">Листовка, не позднее 23 апреля 1938</a></footer>
         </blockquote>
+        <figure class="paper">
+          <a href="images/site/listovka.jpg"><img src="images/site/listovka.jpg" alt="Машинописная листовка апреля 1938 года. Штамп «Копия». Текст начинается: «Великое дело Октябрьской революции подло предано»."></a>
+          <figcaption><a href="pages/листовка.html">Листовка из дела</a>. Апрель 1938.</figcaption>
+        </figure>
 
         <blockquote class="quote long">
           <p>Среди ужасов войны, опустошавшей неоднократно его маленькую, но горячо любимую родину, в огне пожарищ, уничтоживших его последнее имущество, среди смертей близких и дорогих людей, обремененный многочисленной семьей, удрученный тяжелой болезнью своей любимой подруги, сгибаясь под ударами нужды и голода, забытый органист провинциального костела, великий Иоганн Себастьян Бах, творил свои могучие, полные радости и прославления жизни, бессмертные произведения, которые сотни лет будят в душах людей бодрость, стремление к великому и безграничную любовь ко всепобеждающей жизни.</p>
@@ -487,7 +525,13 @@
           <time datetime="1938">1938</time>
           <div>
             <p>27 апреля арест вместе с Ландау и Юрием Румером. Военный трибунал дал десять лет<sup class="fn" id="ref-2"><a href="#fn-2" aria-label="Примечание 2">2)</a></sup>. В лагере прошли четырнадцать лет. 18 марта 1952 года — амнистия, до 1958-го ссылка в Инте<sup class="fn" id="ref-3"><a href="#fn-3" aria-label="Примечание 3">3)</a></sup>.</p>
-            <figure class="spot">
+          </div>
+          <div class="exhibits">
+            <figure class="paper">
+              <a href="images/site/0003.jpg"><img src="images/site/0003.jpg" alt="Ордер № 2599 на арест и обыск. На бланке дата 28 апреля 1938 года и имя: Корец Моисей (он же Михаил) Абрамович."></a>
+              <figcaption><a href="pages/дело1938года2.html">Ордер № 2599</a>. На бланке — 28 апреля 1938, Корец Моисей (он же Михаил) Абрамович.</figcaption>
+            </figure>
+            <figure class="paper face">
               <a href="images/site/1952-Inta.jpg"><img src="images/site/1952-Inta.jpg" alt="1952, Инта. Моисей Корец в рабочей куртке и очках."></a>
               <figcaption>1952, Инта. Рабочая куртка.</figcaption>
             </figure>
@@ -508,6 +552,10 @@
           <time datetime="1956">1956</time>
           <div>
             <p>Ландау написал в военную прокуратуру: Корец «успел проявить себя как способный молодой физик-теоретик»<sup class="fn" id="ref-5"><a href="#fn-5" aria-label="Примечание 5">5)</a></sup>. По делу 1938 года в реабилитации отказали. Её дали после смерти<sup class="fn" id="ref-6"><a href="#fn-6" aria-label="Примечание 6">6)</a></sup>.</p>
+            <figure class="paper">
+              <a href="images/site/reabilitacija.jpg"><img src="images/site/reabilitacija.jpg" alt="Бланк реабилитации на имя Кореца Моисея Абрамовича. Указ от 13 августа 1990 года."></a>
+              <figcaption><a href="pages/реабилитация.html">Бланк на его имя</a>. Указ от 13 августа 1990 года.</figcaption>
+            </figure>
           </div>
         </article>
 
