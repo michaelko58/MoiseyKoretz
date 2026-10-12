@@ -96,6 +96,13 @@ nav::-webkit-scrollbar { display: none; }
 nav a { text-decoration: none; color: var(--muted); white-space: nowrap; }
 nav a:hover { color: var(--ink); }
 
+nav a[aria-current="page"] {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--seal);
+  text-underline-offset: 0.35em;
+}
+
 main {
   padding: 2.2rem 6vw 4rem;
   max-width: 46rem;
@@ -126,6 +133,14 @@ h1 {
 }
 
 .prose p.toc, .verse p.toc { margin: 0.28rem 0; }
+
+.prose p.desc, .verse p.desc {
+  margin: 0 0 0.75rem;
+  max-width: 38rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
 
 .verse p.continue,
 .prose p.continue {
@@ -229,6 +244,10 @@ ol.footnotes li {
   font-size: 0.88rem;
 }
 
+main.wide { max-width: none; }
+
+main.wide > p { max-width: 40rem; }
+
 .note {
   margin-top: 1.5rem;
   color: var(--muted);
@@ -237,6 +256,34 @@ ol.footnotes li {
 
 article.doc {
   margin: 0 0 2.6rem;
+  scroll-margin-top: 4.5rem;
+}
+
+.prose p.jump {
+  margin: 0 0 1.8rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+p.jump a {
+  display: inline-block;
+  min-width: 2.2rem;
+  padding: 0.2rem 0;
+}
+
+ol.jump {
+  margin: 0 0 1.8rem;
+  padding: 0;
+  list-style: none;
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+ol.jump li { margin: 0.3rem 0; }
+
+.prose p.top {
+  margin: 0;
+  font-size: 0.95rem;
 }
 
 article.doc h2 {
@@ -322,6 +369,10 @@ footer.colophon p { margin: 0.3rem 0; }
     scrollbar-width: none;
     -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 1.2rem), transparent);
     mask-image: linear-gradient(to right, #000 calc(100% - 1.2rem), transparent);
+  }
+  nav.scrolled {
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 1.2rem, #000 calc(100% - 1.2rem), transparent);
+    mask-image: linear-gradient(to right, transparent, #000 1.2rem, #000 calc(100% - 1.2rem), transparent);
   }
   nav::-webkit-scrollbar { display: none; }
   nav a { margin: 0; white-space: nowrap; }

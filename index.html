@@ -9,105 +9,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,620;1,7..72,400&display=swap" rel="stylesheet">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect fill='%23f7f1e6' width='32' height='32'/%3E%3Ctext x='16' y='23' text-anchor='middle' font-family='Georgia' font-size='18' fill='%236e2a24'%3EМ%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="site.css">
   <style>
-    :root {
-      --paper: #f7f1e6;
-      --desk: #e6dccb;
-      --ink: #221c18;
-      --muted: #5c534a;
-      --line: #ddcfc0;
-      --seal: #6e2a24;
-      --max: 68rem;
-    }
+    /* Rules for the first page only; the shared look comes from site.css. */
+    body { font-optical-sizing: auto; }
 
-    * { box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      background: var(--desk);
-      color: var(--ink);
-      font-family: Literata, "Palatino Linotype", Palatino, Georgia, serif;
-      font-size: 1.0625rem;
-      line-height: 1.65;
-      font-optical-sizing: auto;
-    }
-
-    ::selection { background: #ead9c4; }
-
-    a {
-      color: inherit;
-      text-decoration-color: #c4b49a;
-      text-underline-offset: 0.18em;
-    }
-
-    a:hover { text-decoration-color: var(--seal); }
-
-    a:focus-visible {
-      outline: 2px solid var(--seal);
-      outline-offset: 3px;
-    }
-
-    .skip {
-      position: absolute;
-      left: 1rem;
-      top: -3rem;
-      background: var(--ink);
-      color: var(--paper);
-      padding: 0.4rem 0.7rem;
-    }
-
-    .skip:focus { top: 0.6rem; }
-
-    .sheet {
-      width: 100%;
-      max-width: var(--max);
-      margin: 0 auto;
-      background: var(--paper);
-      min-height: 100vh;
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 2;
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 0.85rem;
-      padding: 0.9rem 6vw;
-      background: rgba(247, 241, 230, 0.92);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .brand {
-      font-family: "Cormorant Garamond", "Palatino Linotype", serif;
-      font-size: 1.12rem;
-      letter-spacing: 0.01em;
-      text-decoration: none;
-      white-space: nowrap;
-    }
-
-    nav {
-      display: flex;
-      flex: 1;
-      flex-wrap: nowrap;
-      justify-content: flex-end;
-      gap: 0.35rem 0.42rem;
-      min-width: 0;
-      overflow-x: auto;
-      scrollbar-width: none;
-      font-size: 0.86rem;
-    }
-
-    nav::-webkit-scrollbar { display: none; }
-
-    nav a { text-decoration: none; color: var(--muted); white-space: nowrap; }
-    nav a:hover { color: var(--ink); }
-
-    main { padding: 0 6vw 5rem; }
+    main { padding: 0 6vw 5rem; max-width: none; }
 
     section { scroll-margin-top: 4.2rem; }
 
@@ -142,11 +49,12 @@
       line-height: 1.6;
     }
 
-    figure { margin: 2.6rem 0 0; }
+    main figure { margin: 2.6rem 0 0; }
 
-    figure img {
+    main figure img {
       display: block;
       width: min(100%, 320px);
+      max-width: none;
       margin-left: auto;
       height: auto;
       box-shadow: 0 18px 40px rgba(50, 36, 22, 0.14);
@@ -226,8 +134,21 @@
     }
 
     sup.fn a {
+      position: relative;
       color: var(--seal);
       text-decoration: none;
+    }
+
+    /* A larger invisible area makes the small numbers easier to tap. */
+    sup.fn a::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 100%;
+      min-width: 1.75rem;
+      height: 2.5rem;
+      transform: translate(-50%, -50%);
     }
 
     sup.fn a:hover { text-decoration: underline; }
@@ -411,51 +332,20 @@
     footer.colophon p { margin: 0.35rem 0; }
 
     @media (max-width: 800px) {
-      header {
-        flex-direction: row;
-        align-items: center;
-        gap: 0.85rem;
-        padding: 0.55rem 1rem;
-        width: 100%;
-        max-width: 100%;
-      }
-      .brand { flex: none; }
-      nav {
-        display: flex;
-        flex: 1;
-        flex-wrap: nowrap;
-        justify-content: flex-start;
-        gap: 0 0.9rem;
-        width: auto;
-        max-width: none;
-        min-width: 0;
-        overflow-x: auto;
-        padding-right: 1.2rem;
-        scrollbar-width: none;
-        -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 1.2rem), transparent);
-        mask-image: linear-gradient(to right, #000 calc(100% - 1.2rem), transparent);
-      }
-      nav::-webkit-scrollbar { display: none; }
-      nav a { white-space: nowrap; }
+      header { width: 100%; max-width: 100%; }
       main { padding: 0 1.25rem 3.5rem; }
       .hero { grid-template-columns: 1fr; gap: 1.8rem; padding-top: 2rem; }
-      figure { margin-top: 0.4rem; }
-      figure img { margin-left: 0; width: min(100%, 260px); }
+      main figure { margin-top: 0.4rem; }
+      main figure img { margin-left: 0; width: min(100%, 260px); }
       figcaption { text-align: left; }
       .event, .catalog li { grid-template-columns: 1fr; gap: 0.15rem; }
       .split, .split.cols-3, .groups, .exhibits { grid-template-columns: 1fr; }
     }
 
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-    }
-
     @media print {
-      body { background: white; }
       .sheet { box-shadow: none; }
-      header { position: static; background: white; }
+      header { background: white; }
       figure img, figure.paper img { box-shadow: none; }
-      a { text-decoration: none; }
     }
   </style>
 </head>
@@ -465,7 +355,7 @@
     <header>
       <a class="brand" href="#top">Главная страница</a>
       <nav aria-label="Разделы">
-        <a href="#life">Жизнь</a>
+        <a href="#life" aria-current="page">Жизнь</a>
         <a href="pages/1935.html">Дело 1935</a>
         <a href="pages/дело1938года.html">Дело 1938</a>
         <a href="pages/письма.html">Письма</a>
@@ -476,6 +366,7 @@
         <a href="pages/статьи.html">Публикации</a>
         <a href="pages/документы.html">Документы</a>
       </nav>
+      <script>(function(){var n=document.querySelector("header nav"),a=n&&n.querySelector("[aria-current]");if(!n)return;function f(){n.classList.toggle("scrolled",n.scrollLeft>0)}n.addEventListener("scroll",f,{passive:true});if(a&&n.scrollWidth>n.clientWidth)n.scrollLeft=a.offsetLeft-n.offsetLeft-24;f();})();</script>
     </header>
 
     <main id="top">
@@ -486,7 +377,7 @@
           <p class="lede">Физик из круга Льва Ландау. Четырнадцать лет лагерей, ссылка в Инте, стихи, написанные на нарах, потом журнал «Природа».</p>
         </div>
         <figure>
-          <img src="images/moisey.jpg" alt="Портрет Моисея Абрамовича Кореца: молодой человек в круглых очках, тёмном костюме и галстуке. Снимок помят и треснут.">
+          <img src="images/moisey.jpg" alt="Портрет Моисея Абрамовича Кореца: молодой человек в круглых очках, тёмном костюме и галстуке. Снимок помят и треснут." width="544" height="848" fetchpriority="high">
           <figcaption>Семейная фотография</figcaption>
         </figure>
       </section>
@@ -500,7 +391,7 @@
           <footer><a href="pages/листовка.html">Листовка, не позднее 23 апреля 1938</a></footer>
         </blockquote>
         <figure class="paper">
-          <a href="images/site/listovka.jpg"><img src="images/site/listovka.jpg" alt="Машинописная листовка апреля 1938 года. Штамп «Копия». Текст начинается: «Великое дело Октябрьской революции подло предано»."></a>
+          <a href="images/site/listovka.jpg"><img src="images/site/listovka.jpg" alt="Машинописная листовка апреля 1938 года. Штамп «Копия». Текст начинается: «Великое дело Октябрьской революции подло предано»." width="1444" height="2177" loading="lazy"></a>
           <figcaption><a href="pages/листовка.html">Листовка из дела</a>. Апрель 1938.</figcaption>
         </figure>
 
@@ -534,11 +425,11 @@
           </div>
           <div class="exhibits">
             <figure class="paper">
-              <a href="images/site/0003.jpg"><img src="images/site/0003.jpg" alt="Ордер № 2599 на арест и обыск. На бланке дата 28 апреля 1938 года и имя: Корец Моисей (он же Михаил) Абрамович."></a>
+              <a href="images/site/0003.jpg"><img src="images/site/0003.jpg" alt="Ордер № 2599 на арест и обыск. На бланке дата 28 апреля 1938 года и имя: Корец Моисей (он же Михаил) Абрамович." width="640" height="912" loading="lazy"></a>
               <figcaption><a href="pages/дело1938года2.html">Ордер № 2599</a>. На бланке — 28 апреля 1938, Корец Моисей (он же Михаил) Абрамович.</figcaption>
             </figure>
             <figure class="paper face">
-              <a href="images/site/1952-Inta.jpg"><img src="images/site/1952-Inta.jpg" alt="1952, Инта. Моисей Корец в рабочей куртке и очках."></a>
+              <a href="images/site/1952-Inta.jpg"><img src="images/site/1952-Inta.jpg" alt="1952, Инта. Моисей Корец в рабочей куртке и очках." width="512" height="704" loading="lazy"></a>
               <figcaption>1952, Инта. Рабочая куртка.</figcaption>
             </figure>
           </div>
@@ -549,7 +440,7 @@
           <footer><a href="pages/допросдавидаландау.html">Допрос Л. Д. Ландау, 3 августа 1938</a></footer>
         </blockquote>
         <figure class="paper">
-          <a href="images/site/0018.jpg"><img src="images/site/0018.jpg" alt="Выписка из протокола допроса Ландау Льва Давидовича, 3 августа 1938 года. Ответ: почерк физика М.А. Корец."></a>
+          <a href="images/site/0018.jpg"><img src="images/site/0018.jpg" alt="Выписка из протокола допроса Ландау Льва Давидовича, 3 августа 1938 года. Ответ: почерк физика М.А. Корец." width="704" height="1120" loading="lazy"></a>
           <figcaption><a href="pages/допросдавидаландау.html">Допрос Л. Д. Ландау, 3 августа 1938</a>.</figcaption>
         </figure>
         <blockquote class="quote">
@@ -557,7 +448,7 @@
           <footer><a href="pages/допросдавидаландау.html">Допрос Л. Д. Ландау, 3 августа 1938</a></footer>
         </blockquote>
         <figure class="paper">
-          <a href="images/site/0019.jpg"><img src="images/site/0019.jpg" alt="Вторая страница допроса Ландау Льва Давидовича, 3 августа 1938 года. Ответ: листовка составлена им и Корец М.А."></a>
+          <a href="images/site/0019.jpg"><img src="images/site/0019.jpg" alt="Вторая страница допроса Ландау Льва Давидовича, 3 августа 1938 года. Ответ: листовка составлена им и Корец М.А." width="736" height="1104" loading="lazy"></a>
           <figcaption><a href="pages/допросдавидаландау.html">Допрос Л. Д. Ландау, 3 августа 1938</a>. Вторая страница.</figcaption>
         </figure>
 
@@ -576,7 +467,7 @@
           <div>
             <p>Ландау написал в военную прокуратуру: Корец «успел проявить себя как способный молодой физик-теоретик»<sup class="fn" id="ref-5"><a href="#fn-5" aria-label="Примечание 5">5)</a></sup>. По делу 1938 года в реабилитации отказали. Её дали после смерти<sup class="fn" id="ref-6"><a href="#fn-6" aria-label="Примечание 6">6)</a></sup>.</p>
             <figure class="paper">
-              <a href="images/site/reabilitacija.jpg"><img src="images/site/reabilitacija.jpg" alt="Бланк реабилитации на имя Кореца Моисея Абрамовича. Указ от 13 августа 1990 года."></a>
+              <a href="images/site/reabilitacija.jpg"><img src="images/site/reabilitacija.jpg" alt="Бланк реабилитации на имя Кореца Моисея Абрамовича. Указ от 13 августа 1990 года." width="1452" height="2058" loading="lazy"></a>
               <figcaption><a href="pages/реабилитация.html">Бланк на его имя</a>. Указ от 13 августа 1990 года.</figcaption>
             </figure>
           </div>
