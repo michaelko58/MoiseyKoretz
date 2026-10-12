@@ -96,6 +96,13 @@ nav::-webkit-scrollbar { display: none; }
 nav a { text-decoration: none; color: var(--muted); white-space: nowrap; }
 nav a:hover { color: var(--ink); }
 
+nav a[aria-current="page"] {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--seal);
+  text-underline-offset: 0.35em;
+}
+
 main {
   padding: 2.2rem 6vw 4rem;
   max-width: 46rem;
@@ -322,6 +329,10 @@ footer.colophon p { margin: 0.3rem 0; }
     scrollbar-width: none;
     -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 1.2rem), transparent);
     mask-image: linear-gradient(to right, #000 calc(100% - 1.2rem), transparent);
+  }
+  nav.scrolled {
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 1.2rem, #000 calc(100% - 1.2rem), transparent);
+    mask-image: linear-gradient(to right, transparent, #000 1.2rem, #000 calc(100% - 1.2rem), transparent);
   }
   nav::-webkit-scrollbar { display: none; }
   nav a { margin: 0; white-space: nowrap; }

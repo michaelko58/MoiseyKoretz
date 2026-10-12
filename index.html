@@ -107,6 +107,13 @@
     nav a { text-decoration: none; color: var(--muted); white-space: nowrap; }
     nav a:hover { color: var(--ink); }
 
+    nav a[aria-current="page"] {
+      color: var(--ink);
+      text-decoration: underline;
+      text-decoration-color: var(--seal);
+      text-underline-offset: 0.35em;
+    }
+
     main { padding: 0 6vw 5rem; }
 
     section { scroll-margin-top: 4.2rem; }
@@ -435,6 +442,10 @@
         -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 1.2rem), transparent);
         mask-image: linear-gradient(to right, #000 calc(100% - 1.2rem), transparent);
       }
+      nav.scrolled {
+        -webkit-mask-image: linear-gradient(to right, transparent, #000 1.2rem, #000 calc(100% - 1.2rem), transparent);
+        mask-image: linear-gradient(to right, transparent, #000 1.2rem, #000 calc(100% - 1.2rem), transparent);
+      }
       nav::-webkit-scrollbar { display: none; }
       nav a { white-space: nowrap; }
       main { padding: 0 1.25rem 3.5rem; }
@@ -465,7 +476,7 @@
     <header>
       <a class="brand" href="#top">Главная страница</a>
       <nav aria-label="Разделы">
-        <a href="#life">Жизнь</a>
+        <a href="#life" aria-current="page">Жизнь</a>
         <a href="pages/1935.html">Дело 1935</a>
         <a href="pages/дело1938года.html">Дело 1938</a>
         <a href="pages/письма.html">Письма</a>
@@ -476,6 +487,7 @@
         <a href="pages/статьи.html">Публикации</a>
         <a href="pages/документы.html">Документы</a>
       </nav>
+      <script>(function(){var n=document.querySelector("header nav"),a=n&&n.querySelector("[aria-current]");if(!n)return;function f(){n.classList.toggle("scrolled",n.scrollLeft>0)}n.addEventListener("scroll",f,{passive:true});if(a&&n.scrollWidth>n.clientWidth)n.scrollLeft=a.offsetLeft-n.offsetLeft-24;f();})();</script>
     </header>
 
     <main id="top">
