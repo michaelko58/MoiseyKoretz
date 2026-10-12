@@ -134,8 +134,21 @@
     }
 
     sup.fn a {
+      position: relative;
       color: var(--seal);
       text-decoration: none;
+    }
+
+    /* A larger invisible area makes the small numbers easier to tap. */
+    sup.fn a::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 100%;
+      min-width: 1.75rem;
+      height: 2.5rem;
+      transform: translate(-50%, -50%);
     }
 
     sup.fn a:hover { text-decoration: underline; }
