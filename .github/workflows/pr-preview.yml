@@ -1,0 +1,28 @@
+# Posts a link to a live preview of the pull request's branch, served by raw.githack.com.
+# pull_request_target is used so the comment can also be posted on PRs from forks.
+# It never checks out or runs the PR's code, it only builds a URL.
+name: PR preview link
+
+on:
+  pull_request_target:
+    types: [opened, reopened]
+
+permissions:
+  pull-requests: write
+
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            const repo = pr.head.repo.full_name;
+            const branch = pr.head.ref.split('/').map(encodeURIComponent).join('/');
+            const url = `https://raw.githack.com/${repo}/${branch}/index.html`;
+            await github.rest.issues.createComment({
+              ...context.repo,
+              issue_number: pr.number,
+              body: `Предпросмотр сайта из этой ветки: ${url}\n\nСсылка показывает последнюю версию ветки (обновляется через несколько минут после каждого изменения).`,
+            });
