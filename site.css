@@ -117,7 +117,8 @@ h1 {
   letter-spacing: -0.02em;
 }
 main.verse h1 {
-  font-style: italic;
+  font-style: normal;
+  font-weight: 600;
   margin-bottom: 2rem;
 }
 
@@ -147,6 +148,10 @@ main.verse h1 {
   font-size: 0.92rem;
   line-height: 1.5;
 }
+
+.verse p.desc,
+.verse p.lead { font-style: italic; }
+
 
 .verse p.continue,
 .prose p.continue {
