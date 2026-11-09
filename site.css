@@ -116,6 +116,10 @@ h1 {
   line-height: 1.05;
   letter-spacing: -0.02em;
 }
+main.verse h1 {
+  font-style: italic;
+  margin-bottom: 2rem;
+}
 
 .prose p { margin: 0 0 0.9rem; }
 
