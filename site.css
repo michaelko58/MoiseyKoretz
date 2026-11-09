@@ -157,6 +157,14 @@ main.verse h1 {
   font-family: "Cormorant Garamond", "Palatino Linotype", Palatino, serif;
   font-size: 1.35rem;
 }
+p.neighbors {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.6rem 1.5rem;
+}
+.neighbors a.next { margin-left: auto; }
+
 
 .verse p.intro,
 .prose p.intro {
