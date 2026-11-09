@@ -132,6 +132,8 @@ h1 {
   max-width: 38rem;
 }
 
+.verse p.stanza { margin-top: 0.95rem; }
+
 .prose p.toc, .verse p.toc { margin: 0.28rem 0; }
 
 .prose p.desc, .verse p.desc {
