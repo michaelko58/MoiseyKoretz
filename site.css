@@ -148,12 +148,6 @@ figure.video iframe {
   background: #221c18;
 }
 
-figure.video figcaption {
-  margin-top: 0.35rem;
-  color: var(--muted);
-  font-size: 0.88rem;
-}
-
 .prose p.toc, .verse p.toc { margin: 0.28rem 0; }
 
 .prose p.desc, .verse p.desc {
