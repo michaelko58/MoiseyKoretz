@@ -192,16 +192,22 @@
     p.setAttribute("dir", "ltr");
     p.setAttribute("aria-label", lang === "he" ? "שפה" : (lang === "en" ? "Language" : "Язык"));
     ["ru", "en", "he"].forEach(function (code) {
-      var a = document.createElement("a");
-      var u = new URL(location.href);
-      u.searchParams.set("lang", code);
-      u.hash = "";
-      a.href = u.pathname + u.search;
-      a.lang = code;
-      a.hreflang = code;
-      a.textContent = code === "ru" ? "Русский" : (code === "en" ? "English" : "עברית");
-      if (code === lang) a.setAttribute("aria-current", "true");
-      p.appendChild(a);
+      var label = code === "ru" ? "Русский" : (code === "en" ? "English" : "עברית");
+      var el;
+      if (code === lang) {
+        el = document.createElement("span");
+        el.setAttribute("aria-current", "true");
+      } else {
+        el = document.createElement("a");
+        var u = new URL(location.href);
+        u.searchParams.set("lang", code);
+        u.hash = "";
+        el.href = u.pathname + u.search;
+        el.hreflang = code;
+      }
+      el.lang = code;
+      el.textContent = label;
+      p.appendChild(el);
     });
     header.appendChild(p);
   }
