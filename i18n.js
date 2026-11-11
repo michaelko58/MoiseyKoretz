@@ -242,14 +242,21 @@
       if (lang === "he") header.classList.add("i18n-he");
     }
     applyMap(document.querySelector("a.skip"), SKIP, lang);
-    var home = document.getElementById("home-" + lang);
-    if (home) {
-      var fresh = home.content.querySelector("main");
+    var swap = document.getElementById("home-" + lang) || document.getElementById("page-" + lang);
+    if (swap) {
+      var fresh = swap.content.querySelector("main");
       var current = document.querySelector("main");
       if (fresh && current) current.replaceWith(fresh.cloneNode(true));
-      document.title = HOME_TITLE[lang];
       var desc = document.querySelector('meta[name="description"]');
-      if (desc && HOME_DESC[lang]) desc.setAttribute("content", HOME_DESC[lang]);
+      if (swap.id.indexOf("home-") === 0) {
+        document.title = HOME_TITLE[lang];
+        if (desc && HOME_DESC[lang]) desc.setAttribute("content", HOME_DESC[lang]);
+      } else {
+        var pageTitle = swap.getAttribute("data-title");
+        if (pageTitle) document.title = pageTitle;
+        var pageDesc = swap.getAttribute("data-desc");
+        if (desc && pageDesc) desc.setAttribute("content", pageDesc);
+      }
       if (lang === "he") document.documentElement.setAttribute("dir", "rtl");
       return;
     }

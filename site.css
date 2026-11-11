@@ -196,6 +196,11 @@ html[dir="rtl"] a.back {
   margin-left: 0.35rem;
 }
 
+html[dir="rtl"] .more-sources h3 {
+  letter-spacing: 0;
+  text-transform: none;
+}
+
 main {
   padding: 2.2rem 6vw 4rem;
   max-width: 46rem;
