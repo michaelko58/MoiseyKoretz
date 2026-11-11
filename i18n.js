@@ -192,16 +192,22 @@
     p.setAttribute("dir", "ltr");
     p.setAttribute("aria-label", lang === "he" ? "שפה" : (lang === "en" ? "Language" : "Язык"));
     ["ru", "en", "he"].forEach(function (code) {
-      var a = document.createElement("a");
-      var u = new URL(location.href);
-      u.searchParams.set("lang", code);
-      u.hash = "";
-      a.href = u.pathname + u.search;
-      a.lang = code;
-      a.hreflang = code;
-      a.textContent = code === "ru" ? "Русский" : (code === "en" ? "English" : "עברית");
-      if (code === lang) a.setAttribute("aria-current", "true");
-      p.appendChild(a);
+      var label = code === "ru" ? "Русский" : (code === "en" ? "English" : "עברית");
+      var el;
+      if (code === lang) {
+        el = document.createElement("span");
+        el.setAttribute("aria-current", "true");
+      } else {
+        el = document.createElement("a");
+        var u = new URL(location.href);
+        u.searchParams.set("lang", code);
+        u.hash = "";
+        el.href = u.pathname + u.search;
+        el.hreflang = code;
+      }
+      el.lang = code;
+      el.textContent = label;
+      p.appendChild(el);
     });
     header.appendChild(p);
   }
@@ -236,14 +242,21 @@
       if (lang === "he") header.classList.add("i18n-he");
     }
     applyMap(document.querySelector("a.skip"), SKIP, lang);
-    var home = document.getElementById("home-" + lang);
-    if (home) {
-      var fresh = home.content.querySelector("main");
+    var swap = document.getElementById("home-" + lang) || document.getElementById("page-" + lang);
+    if (swap) {
+      var fresh = swap.content.querySelector("main");
       var current = document.querySelector("main");
       if (fresh && current) current.replaceWith(fresh.cloneNode(true));
-      document.title = HOME_TITLE[lang];
       var desc = document.querySelector('meta[name="description"]');
-      if (desc && HOME_DESC[lang]) desc.setAttribute("content", HOME_DESC[lang]);
+      if (swap.id.indexOf("home-") === 0) {
+        document.title = HOME_TITLE[lang];
+        if (desc && HOME_DESC[lang]) desc.setAttribute("content", HOME_DESC[lang]);
+      } else {
+        var pageTitle = swap.getAttribute("data-title");
+        if (pageTitle) document.title = pageTitle;
+        var pageDesc = swap.getAttribute("data-desc");
+        if (desc && pageDesc) desc.setAttribute("content", pageDesc);
+      }
       if (lang === "he") document.documentElement.setAttribute("dir", "rtl");
       return;
     }
