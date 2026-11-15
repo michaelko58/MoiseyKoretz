@@ -1,34 +1,355 @@
+/* ==== Fonts (self-hosted) ===============================================
+   Files in fonts/ are copied from @fontsource-variable/literata 5.3.0 and
+   @fontsource/cormorant-garamond 5.3.0 (SIL OFL 1.1, see fonts/OFL-*.txt):
+   only the faces the site uses, latin + cyrillic subsets, woff2.
+   Literata is variable. Its "opsz" files were cut down with
+     fonttools varLib.instancer <file> wght=400:620   (upright)
+     fonttools varLib.instancer <file> wght=400       (italic)
+   to the weights the old Google Fonts request served (400 and 620 upright,
+   400 italic); opsz 7..72 is kept. The font-weight descriptors below match,
+   so bold text renders as before (at 620).
+
+   The "… Fallback" faces are local system fonts resized to match the web
+   fonts, so text does not reflow when the web font swaps in. The numbers
+   come from the fonts' OS/2 tables (both web fonts set USE_TYPO_METRICS)
+   and glyph advances weighted by character frequency in the site's own
+   <main> text:
+     size-adjust = avg advance (web font) / avg advance (local font)
+     ascent/descent/line-gap-override = typo metric / (unitsPerEm * size-adjust)
+   Literata: upm 1000, typo ascender 1177, descender -308, line gap 0
+   (advances measured at opsz 17, the body size). Cormorant Garamond:
+   upm 1000, typo ascender 924, descender -287, line gap 0.
+
+   Hebrew: noto-serif-hebrew-* and frank-ruhl-libre-* are the "hebrew"
+   unicode-range files Google Fonts serves for Noto Serif Hebrew v30 and
+   Frank Ruhl Libre v23 (SIL OFL 1.1), both variable, cut down with
+     fonttools varLib.instancer <file> wght=400:600   (Noto Serif Hebrew)
+     fonttools varLib.instancer <file> wght=500:700   (Frank Ruhl Libre)
+   to the weights upstream's Google Fonts request asked for. Noto Serif
+   Hebrew: upm 1000, typo 896 / -290 / 0. Frank Ruhl Libre: upm 1000,
+   typo 957 / -334 / 0 (both USE_TYPO_METRICS). Neither has italics:
+   Hebrew pages turn off synthetic slanting (font-synthesis-style).
+
+   Font stacks are the custom properties --font-text and --font-display
+   on :root, switched to the Hebrew stacks on [lang="he"].
+   ======================================================================= */
+
+@font-face {
+  font-family: Literata;
+  font-style: normal;
+  font-weight: 400 620;
+  font-display: swap;
+  src: url(fonts/literata-cyrillic-opsz-normal.woff2) format("woff2");
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: Literata;
+  font-style: normal;
+  font-weight: 400 620;
+  font-display: swap;
+  src: url(fonts/literata-latin-opsz-normal.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: Literata;
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(fonts/literata-cyrillic-opsz-italic.woff2) format("woff2");
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: Literata;
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(fonts/literata-latin-opsz-italic.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Cormorant Garamond";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(fonts/cormorant-garamond-cyrillic-500-normal.woff2) format("woff2");
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: "Cormorant Garamond";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(fonts/cormorant-garamond-latin-500-normal.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Cormorant Garamond";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(fonts/cormorant-garamond-cyrillic-600-normal.woff2) format("woff2");
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: "Cormorant Garamond";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(fonts/cormorant-garamond-latin-600-normal.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Cormorant Garamond";
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url(fonts/cormorant-garamond-cyrillic-500-italic.woff2) format("woff2");
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: "Cormorant Garamond";
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url(fonts/cormorant-garamond-latin-500-italic.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Hebrew pages: Noto Serif Hebrew for text, Frank Ruhl Libre for headings.
+   Hebrew subset only; Latin, Cyrillic and digits fall through to Literata
+   and Cormorant Garamond, which come next in the Hebrew font stacks. */
+@font-face {
+  font-family: "Noto Serif Hebrew";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url(fonts/noto-serif-hebrew-hebrew-wght-normal.woff2) format("woff2");
+  unicode-range: U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F;
+}
+@font-face {
+  font-family: "Frank Ruhl Libre";
+  font-style: normal;
+  font-weight: 500 700;
+  font-display: swap;
+  src: url(fonts/frank-ruhl-libre-hebrew-wght-normal.woff2) format("woff2");
+  unicode-range: U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F;
+}
+
+/* Literata 400 vs Georgia: avg advance 0.5364 / 0.5000 em */
+@font-face {
+  font-family: "Literata Fallback";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Georgia");
+  size-adjust: 107.29%;
+  ascent-override: 109.71%;
+  descent-override: 28.71%;
+  line-gap-override: 0%;
+}
+/* Literata 620 vs Georgia Bold: 0.5563 / 0.5767 em (also serves 700) */
+@font-face {
+  font-family: "Literata Fallback";
+  font-style: normal;
+  font-weight: 700;
+  src: local("Georgia Bold"), local("Georgia-Bold");
+  size-adjust: 96.47%;
+  ascent-override: 122.01%;
+  descent-override: 31.93%;
+  line-gap-override: 0%;
+}
+/* Literata italic 400 vs Georgia Italic: 0.5082 / 0.5201 em */
+@font-face {
+  font-family: "Literata Fallback";
+  font-style: italic;
+  font-weight: 400;
+  src: local("Georgia Italic"), local("Georgia-Italic");
+  size-adjust: 97.72%;
+  ascent-override: 120.44%;
+  descent-override: 31.52%;
+  line-gap-override: 0%;
+}
+/* Cormorant Garamond 500 vs Palatino: 0.4322 / 0.5003 em
+   (Georgia measures 0.5000, so it shares the same numbers) */
+@font-face {
+  font-family: "Cormorant Garamond Fallback";
+  font-style: normal;
+  src: local("Palatino Linotype"), local("PalatinoLinotype-Roman"), local("Palatino"), local("Palatino-Roman"), local("Georgia");
+  size-adjust: 86.39%;
+  ascent-override: 106.95%;
+  descent-override: 33.22%;
+  line-gap-override: 0%;
+}
+/* Cormorant Garamond italic 500 vs Palatino Italic: 0.4106 / 0.4699 em */
+@font-face {
+  font-family: "Cormorant Garamond Fallback";
+  font-style: italic;
+  src: local("Palatino Linotype Italic"), local("PalatinoLinotype-Italic"), local("Palatino Italic"), local("Palatino-Italic");
+  size-adjust: 87.40%;
+  ascent-override: 105.73%;
+  descent-override: 32.84%;
+  line-gap-override: 0%;
+}
+/* Hebrew fallbacks: Times New Roman has Hebrew letters on macOS and
+   Windows. Restricted to the Hebrew range, like the web fonts, so Latin
+   text still reaches Literata/Cormorant. Advances weighted by letter
+   frequency in the src/he pages.
+   Noto Serif Hebrew 400 vs Times New Roman: 0.4490 / 0.3813 em */
+@font-face {
+  font-family: "Noto Serif Hebrew Fallback";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Times New Roman"), local("TimesNewRomanPSMT");
+  unicode-range: U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F;
+  size-adjust: 117.74%;
+  ascent-override: 76.10%;
+  descent-override: 24.63%;
+  line-gap-override: 0%;
+}
+/* Noto Serif Hebrew 600 vs Times New Roman Bold: 0.4532 / 0.4038 em */
+@font-face {
+  font-family: "Noto Serif Hebrew Fallback";
+  font-style: normal;
+  font-weight: 700;
+  src: local("Times New Roman Bold"), local("TimesNewRomanPS-BoldMT");
+  unicode-range: U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F;
+  size-adjust: 112.22%;
+  ascent-override: 79.84%;
+  descent-override: 25.84%;
+  line-gap-override: 0%;
+}
+/* Frank Ruhl Libre 500 vs Times New Roman: 0.4048 / 0.3813 em */
+@font-face {
+  font-family: "Frank Ruhl Libre Fallback";
+  font-style: normal;
+  font-weight: 500;
+  src: local("Times New Roman"), local("TimesNewRomanPSMT");
+  unicode-range: U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F;
+  size-adjust: 106.16%;
+  ascent-override: 90.14%;
+  descent-override: 31.46%;
+  line-gap-override: 0%;
+}
+/* Frank Ruhl Libre 700 vs Times New Roman Bold: 0.4119 / 0.4038 em */
+@font-face {
+  font-family: "Frank Ruhl Libre Fallback";
+  font-style: normal;
+  font-weight: 700;
+  src: local("Times New Roman Bold"), local("TimesNewRomanPS-BoldMT");
+  unicode-range: U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F;
+  size-adjust: 102.01%;
+  ascent-override: 93.82%;
+  descent-override: 32.74%;
+  line-gap-override: 0%;
+}
+/* ==== End of fonts ===================================================== */
+
+/* ==== Tokens ===========================================================
+   The colours, shadows, font sizes, line heights, spacing steps and text
+   measures that site.css and the per-page styles use. Values not taken
+   from here are one-off geometry (grid columns, tap areas, image widths,
+   the home page's display sizes) and stay where they are used.
+   ======================================================================= */
 :root {
-  --paper: #f7f1e6;
-  --desk: #e6dccb;
+  /* Colours */
+  --paper: #f7f1e6;      /* the sheet */
+  --desk: #e6dccb;       /* around the sheet */
   --ink: #221c18;
   --muted: #5c534a;
-  --line: #ddcfc0;
-  --seal: #6e2a24;
-  --seal-soft: #f3e4dc;
+  --line: #ddcfc0;       /* rules and borders */
+  --underline: #c4b49a;  /* link underlines */
+  --selection: #ead9c4;
+  --seal: #6e2a24;       /* accent: current item, numbers, focus ring */
+  --target: rgba(120, 84, 40, 0.08); /* the footnote or source a link jumped to */
+  --scan-bg: #fff;       /* behind archive scans */
+
+  /* Shadows: scans on inner pages, lifted papers on the home page */
+  --shadow-scan: 0 1px 5px rgba(34, 28, 24, 0.18);
+  --shadow-scan-hover: 0 0 0 1px var(--seal), 0 2px 10px rgba(34, 28, 24, 0.22);
+  --shadow-lift-sm: 0 8px 18px rgba(50, 36, 22, 0.12);
+  --shadow-lift: 0 16px 36px rgba(50, 36, 22, 0.13);
+  --shadow-lift-hover: 0 16px 36px rgba(50, 36, 22, 0.2);
+
+  /* Font stacks */
+  --font-text: Literata, "Literata Fallback", "Palatino Linotype", Palatino, Georgia, serif;
+  --font-display: "Cormorant Garamond", "Cormorant Garamond Fallback", "Palatino Linotype", Palatino, serif;
+
+  /* Font sizes */
+  --text-2xs: 0.8rem;     /* language switcher, small-caps labels, file notes */
+  --text-xs: 0.88rem;     /* menu, captions, colophon */
+  --text-sm: 0.94rem;     /* descriptions, notes, page jumps, transcripts */
+  --text-base: 1.0625rem; /* body text */
+  --text-md: 1.15rem;     /* site name, lede, footnotes */
+  --text-lg: 1.25rem;     /* dedications, intros */
+  --text-xl: 1.4rem;      /* neighbour links, years */
+  --text-2xl: 1.6rem;     /* section headings, event years */
+  --text-display: clamp(2.2rem, 4vw, 3.2rem); /* page titles */
+
+  /* Line heights */
+  --leading-tight: 1.15;
+  --leading-snug: 1.35;
+  --leading-normal: 1.5;
+  --leading-body: 1.65;
+
+  /* Spacing */
+  --space-3xs: 0.15rem;
+  --space-2xs: 0.35rem;
+  --space-xs: 0.6rem;
+  --space-sm: 0.9rem;
+  --space-md: 1.25rem;
+  --space-lg: 1.8rem;
+  --space-xl: 2.6rem;
+  --space-2xl: 3.5rem;
+  --space-3xl: 5rem;
+  --gutter: 6vw;          /* page side padding; 1.25rem on narrow screens */
+  --tap-pad: 0.68rem;     /* header links' vertical padding, cancelled by a negative margin */
+
+  /* Widths */
+  --measure-narrow: 38rem; /* verse lines, lede */
+  --measure: 40rem;
+  --measure-wide: 46rem;
   --max: 68rem;
+}
+
+/* Hebrew: the Hebrew faces first, then the usual stacks for Latin,
+   Cyrillic and digits. Set on every [lang="he"] element, so the «עברית»
+   link in the language switcher gets it too. */
+[lang="he"] {
+  --font-text: "Noto Serif Hebrew", "Noto Serif Hebrew Fallback", Literata, "Literata Fallback", "Palatino Linotype", Palatino, Georgia, serif;
+  --font-display: "Frank Ruhl Libre", "Frank Ruhl Libre Fallback", "Cormorant Garamond", "Cormorant Garamond Fallback", "Palatino Linotype", Palatino, serif;
+  /* Hebrew has no italics: keep italic passages upright instead of slanting them. */
+  font-synthesis-style: none;
+  /* Cormorant's default old-style figures look too small beside Hebrew letters. */
+  font-variant-numeric: lining-nums;
 }
 
 * { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  /* No double-tap zoom delay on touch screens; pinch zoom still works. */
+  touch-action: manipulation;
+  /* Keep jump targets and keyboard focus clear of the sticky header. */
+  scroll-padding-top: 4.5rem;
+}
 
 body {
   margin: 0;
   overflow-x: clip;
   background: var(--desk);
   color: var(--ink);
-  font-family: Literata, "Palatino Linotype", Palatino, Georgia, serif;
-  font-size: 1.0625rem;
-  line-height: 1.65;
+  font-family: var(--font-text);
+  font-size: var(--text-base);
+  line-height: var(--leading-body);
 }
 
-::selection { background: #ead9c4; }
+::selection { background: var(--selection); }
 
 a {
   color: inherit;
-  text-decoration-color: #c4b49a;
+  text-decoration-color: var(--underline);
   text-underline-offset: 0.18em;
+  -webkit-tap-highlight-color: color-mix(in srgb, var(--seal) 12%, transparent);
 }
 
 a:hover { text-decoration-color: var(--seal); }
@@ -40,14 +361,15 @@ a:focus-visible {
 
 .skip {
   position: absolute;
-  left: 1rem;
+  z-index: 3;
+  inset-inline-start: var(--space-sm);
   top: -3rem;
   background: var(--ink);
   color: var(--paper);
-  padding: 0.4rem 0.7rem;
+  padding: var(--space-2xs) var(--space-xs);
 }
 
-.skip:focus { top: 0.6rem; }
+.skip:focus { top: var(--space-xs); }
 
 .sheet {
   width: 100%;
@@ -64,19 +386,24 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  gap: 0.85rem;
-  padding: 0.9rem 6vw;
-  background: rgba(247, 241, 230, 0.92);
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--gutter);
+  background: color-mix(in srgb, var(--paper) 92%, transparent);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line);
 }
 
 .brand {
-  font-family: "Cormorant Garamond", "Palatino Linotype", Palatino, serif;
-  font-size: 1.12rem;
+  font-family: var(--font-display);
+  font-size: var(--text-md);
   letter-spacing: 0.01em;
   text-decoration: none;
   white-space: nowrap;
+}
+
+.brand:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--seal);
 }
 
 nav {
@@ -84,17 +411,27 @@ nav {
   flex: 1;
   flex-wrap: nowrap;
   justify-content: flex-end;
-  gap: 0.35rem 0.42rem;
+  gap: var(--space-2xs);
   min-width: 0;
   overflow-x: auto;
   scrollbar-width: none;
-  font-size: 0.86rem;
+  /* The links' vertical padding reaches into the header padding, so the header keeps its height. */
+  margin-block: calc(-1 * var(--tap-pad));
+  scroll-padding-inline: 2rem;
+  font-size: var(--text-xs);
 }
 
 nav::-webkit-scrollbar { display: none; }
 
-nav a { text-decoration: none; color: var(--muted); white-space: nowrap; }
+nav a {
+  padding-block: var(--tap-pad);
+  text-decoration: none;
+  color: var(--muted);
+  white-space: nowrap;
+}
 nav a:hover { color: var(--ink); }
+/* nav scrolls sideways, which clips anything outside it: draw the ring inside the link. */
+nav a:focus-visible { outline-offset: -2px; }
 
 nav a[aria-current="page"] {
   color: var(--ink);
@@ -103,29 +440,36 @@ nav a[aria-current="page"] {
   text-underline-offset: 0.35em;
 }
 
+/* Language switcher at the end of the header. Always Русский, English,
+   עברית from left to right, also on right-to-left pages. */
 .langs {
   display: flex;
   flex: none;
   direction: ltr;
-  gap: 0.5rem;
-  margin: 0;
-  font-size: 0.78rem;
+  gap: var(--space-xs);
+  /* Same trick as nav: tall tap targets without a taller header. */
+  margin: calc(-1 * var(--tap-pad)) 0;
+  font-size: var(--text-2xs);
   letter-spacing: 0.02em;
 }
 
 .langs a,
 .langs span {
+  padding-block: var(--tap-pad);
   text-decoration: none;
   color: var(--muted);
   white-space: nowrap;
 }
 
-.langs a[lang="he"],
-.langs span[lang="he"] {
-  font-family: "Noto Serif Hebrew", "Segoe UI", "Arial Hebrew", sans-serif;
+.langs [lang="he"] {
+  font-family: var(--font-text);
+  letter-spacing: 0;
 }
 
 .langs a:hover { color: var(--ink); }
+
+/* Set the switcher apart from the last menu item. */
+header:has(.langs) nav { margin-inline-end: var(--space-sm); }
 
 .langs [aria-current="true"] {
   color: var(--ink);
@@ -134,117 +478,58 @@ nav a[aria-current="page"] {
   text-underline-offset: 0.3em;
 }
 
-html[dir="rtl"] body,
-.i18n-he {
-  font-family: "Noto Serif Hebrew", "Frank Ruhl Libre", Literata, Georgia, serif;
-}
-
-html[dir="rtl"] h1,
-html[dir="rtl"] h2,
-html[dir="rtl"] .brand,
-.i18n-he {
-  font-family: "Frank Ruhl Libre", "Noto Serif Hebrew", serif;
-  letter-spacing: 0;
-}
-
-html[dir="rtl"] h1,
-html[dir="rtl"] h2 {
-  line-height: 1.05;
-}
-
-html[dir="rtl"] .hero h1 {
-  font-size: clamp(2.05rem, 8.2vw, 5.4rem);
-  max-width: 100%;
-}
-
-@media (max-width: 800px) {
-  header {
-    flex-wrap: wrap;
-    row-gap: 0.45rem;
-  }
-
-  .langs {
-    flex: 1 0 100%;
-  }
-}
-
-html[dir="rtl"] .quote p,
-html[dir="rtl"] .quote.long p,
-html[dir="rtl"] .split h3 {
-  font-family: "Frank Ruhl Libre", "Noto Serif Hebrew", serif;
-  font-style: normal;
-}
-
-html[dir="rtl"] main figure img {
-  margin-left: 0;
-  margin-right: auto;
-}
-
-html[dir="rtl"] figcaption,
-html[dir="rtl"] figure.paper figcaption,
-html[dir="rtl"] figure.spot figcaption {
-  text-align: start;
-}
-
-html[dir="rtl"] sup.fn {
-  margin-left: 0;
-  margin-right: 0.12em;
-}
-
-html[dir="rtl"] a.back {
-  margin-right: 0;
-  margin-left: 0.35rem;
-}
-
-html[dir="rtl"] .more-sources h3 {
+/* Hebrew: no letter-spacing or capitals, which Hebrew type does not use. */
+html[lang="he"] :is(h1, h2, h3, .brand) {
   letter-spacing: 0;
   text-transform: none;
 }
 
 main {
-  padding: 2.2rem 6vw 4rem;
-  max-width: 46rem;
+  padding: var(--space-xl) var(--gutter) var(--space-2xl);
+  max-width: var(--measure-wide);
 }
 
 h1 {
-  margin: 0 0 1.2rem;
-  font-family: "Cormorant Garamond", "Palatino Linotype", Palatino, serif;
+  margin: 0 0 var(--space-md);
+  font-family: var(--font-display);
   font-weight: 500;
-  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-size: var(--text-display);
   line-height: 1.05;
   letter-spacing: -0.02em;
+  text-wrap: balance;
 }
 main.verse h1 {
   font-style: normal;
   font-weight: 600;
-  margin-bottom: 2rem;
+  margin-bottom: var(--space-lg);
 }
 
-.prose p { margin: 0 0 0.9rem; }
+.prose p { margin: 0 0 var(--space-sm); }
 
 .prose h2 {
-  margin: 1.7rem 0 0.35rem;
-  font-family: "Cormorant Garamond", "Palatino Linotype", Palatino, serif;
+  margin: var(--space-lg) 0 var(--space-2xs);
+  font-family: var(--font-display);
   font-weight: 500;
-  font-size: 1.55rem;
-  line-height: 1.15;
+  font-size: var(--text-2xl);
+  line-height: var(--leading-tight);
+  text-wrap: balance;
 }
 
 .verse p {
-  margin: 0.15rem 0;
-  max-width: 38rem;
+  margin: var(--space-3xs) 0;
+  max-width: var(--measure-narrow);
 }
 
-.verse p.stanza { margin-top: 0.95rem; }
+.verse p.stanza { margin-top: var(--space-sm); }
 
-.prose p.toc, .verse p.toc { margin: 0.28rem 0; }
+.prose p.toc, .verse p.toc { margin: var(--space-2xs) 0; }
 
 .prose p.desc, .verse p.desc {
-  margin: 0 0 0.75rem;
-  max-width: 38rem;
+  margin: 0 0 var(--space-sm);
+  max-width: var(--measure-narrow);
   color: var(--muted);
-  font-size: 0.92rem;
-  line-height: 1.5;
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
 }
 
 .verse p.desc,
@@ -253,95 +538,210 @@ main.verse h1 {
 
 .verse p.continue,
 .prose p.continue {
-  margin: 2rem 0 0;
-  padding-top: 1rem;
+  margin: var(--space-lg) 0 0;
+  padding-top: var(--space-sm);
   border-top: 1px solid var(--line);
   max-width: none;
-  font-family: "Cormorant Garamond", "Palatino Linotype", Palatino, serif;
-  font-size: 1.35rem;
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
 }
 p.neighbors {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 0.6rem 1.5rem;
+  gap: var(--space-xs) var(--space-md);
 }
-.neighbors a.next { margin-left: auto; }
+.neighbors a.next { margin-inline-start: auto; }
 
 .verse p.dedicate {
-  margin: 0.05rem 0 0;
-  max-width: 38rem;
-  font-family: "Cormorant Garamond", "Palatino Linotype", Palatino, serif;
+  margin: var(--space-3xs) 0 0;
+  max-width: var(--measure-narrow);
+  font-family: var(--font-display);
   font-style: italic;
   font-weight: 500;
-  font-size: 1.22rem;
-  line-height: 1.3;
+  font-size: var(--text-lg);
+  line-height: var(--leading-snug);
 }
-.verse p.dedicate + p:not(.dedicate) { margin-top: 0.9rem; }
+.verse p.dedicate + p:not(.dedicate) { margin-top: var(--space-sm); }
 
 
 .verse p.intro,
 .prose p.intro {
-  margin: 0.2rem 0 1.15rem;
-  max-width: 40rem;
-  font-family: "Cormorant Garamond", "Palatino Linotype", Palatino, serif;
+  margin: var(--space-3xs) 0 var(--space-md);
+  max-width: var(--measure);
+  font-family: var(--font-display);
   font-style: italic;
   font-weight: 500;
-  font-size: 1.28rem;
-  line-height: 1.45;
-}
-
-a.fn,
-ol.footnotes a.back {
-  scroll-margin-top: 4.5rem;
+  font-size: var(--text-lg);
+  line-height: var(--leading-normal);
 }
 
 a.fn {
+  position: relative;
   font-size: 0.75em;
   line-height: 0;
-  text-decoration: none;
   vertical-align: super;
 }
 
+a.fn:hover { color: var(--seal); }
+
 ol.footnotes a.back {
   color: var(--seal);
-  text-decoration: none;
-  margin-right: 0.35rem;
+  margin-inline-end: var(--space-2xs);
 }
 
 a.fn:target,
-ol.footnotes li:target { background: rgba(120, 84, 40, 0.08); }
+ol.footnotes li:target { background: var(--target); }
 
 ol.footnotes {
-  margin: 2.2rem 0 0;
-  padding: 1rem 0 0;
+  margin: var(--space-xl) 0 0;
+  padding: var(--space-sm) 0 0;
   border-top: 1px solid var(--line);
   list-style: none;
-  max-width: 40rem;
+  max-width: var(--measure);
 }
 
 ol.footnotes li {
-  margin: 0.55rem 0;
+  margin: var(--space-xs) 0;
   color: var(--muted);
-  font-family: "Cormorant Garamond", "Palatino Linotype", Palatino, serif;
+  font-family: var(--font-display);
   font-style: italic;
-  font-size: 1.15rem;
-  line-height: 1.4;
+  font-size: var(--text-md);
+  line-height: var(--leading-snug);
 }
 
-.prose p.item, .verse p.item { margin: 0.35rem 0; }
+/* Numbered sources (home page and «Жизнь»): sup.fn in the text, ol.refs below. */
+.section-note {
+  margin: 0 0 var(--space-2xs);
+  max-width: var(--measure);
+  color: var(--muted);
+}
 
-.prose p.year, .verse p.year {
-  margin: 1.35rem 0 0.35rem;
-  font-family: "Cormorant Garamond", "Palatino Linotype", Palatino, serif;
-  font-size: 1.45rem;
-  line-height: 1.15;
+sup.fn {
+  font-size: 0.72em;
+  line-height: 0;
+  margin-inline-start: 0.12em;
+}
+
+sup.fn a {
+  position: relative;
+  color: var(--seal);
+  text-decoration: none;
+}
+
+/* A larger invisible area makes the small numbers easier to tap. */
+a.fn::after,
+sup.fn a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  min-width: 1.75rem;
+  height: 2.5rem;
+  transform: translate(-50%, -50%);
+}
+
+sup.fn a:hover { text-decoration: underline; }
+
+ol.refs {
+  list-style: none;
+  margin: var(--space-md) 0 0;
+  padding: 0;
+  max-width: var(--measure-wide);
+}
+
+ol.refs li {
+  margin: 0;
+  padding: var(--space-xs) 0;
+  border-top: 1px solid var(--line);
+}
+
+ol.refs li:target,
+sup.fn:target { background: var(--target); }
+
+a.back {
+  color: var(--seal);
+  margin-inline-end: var(--space-2xs);
+  font-variant-numeric: tabular-nums;
+}
+
+.more-sources { margin-top: var(--space-lg); }
+
+.more-sources h3 {
+  margin: 0 0 var(--space-xs);
+  font-size: var(--text-2xs);
+  font-weight: 620;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-wrap: balance;
+}
+
+.more-sources ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-width: var(--measure-wide);
+}
+
+.more-sources li {
+  padding: var(--space-xs) 0;
+  border-top: 1px solid var(--line);
+}
+
+/* A dated entry: the year first (on the left, or on the right in Hebrew), then the text. */
+.event {
+  display: grid;
+  grid-template-columns: 7.2rem minmax(0, 1fr);
+  gap: var(--space-md);
+  padding: var(--space-md) 0;
+  border-top: 1px solid var(--line);
+}
+
+.event > time,
+.event > .event-year {
+  margin: 0;
+  color: var(--seal);
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  line-height: var(--leading-tight);
+  padding-top: var(--space-3xs);
+}
+
+.event p { margin: 0; }
+.event p + p { margin-top: var(--space-xs); }
+
+.prose p.item, .verse p.item { margin: var(--space-2xs) 0; }
+
+.prose p.year, .verse p.year,
+.verse h2.year {
+  margin: var(--space-md) 0 var(--space-2xs);
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  line-height: var(--leading-tight);
+}
+
+.verse h2.year { font-weight: 400; text-wrap: balance; }
+
+/* «Творчество»: each year's poems as a list that looks like p.toc lines. */
+.verse ul.toc {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.verse ul.toc li {
+  margin: var(--space-2xs) 0;
+  max-width: var(--measure-narrow);
 }
 
 .file {
   color: var(--muted);
-  font-size: 0.82rem;
-  margin-left: 0.35rem;
+  font-size: var(--text-2xs);
+  margin-inline-start: var(--space-2xs);
 }
 
 .file img,
@@ -349,77 +749,86 @@ ol.footnotes li {
   display: block;
   max-width: min(100%, 720px);
   height: auto;
-  margin: 0.55rem 0 0.25rem;
-  background: #fff;
-  box-shadow: 0 1px 5px rgba(34, 28, 24, 0.18);
+  margin: var(--space-xs) 0 var(--space-2xs);
+  background: var(--scan-bg);
+  box-shadow: var(--shadow-scan);
 }
 
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 1.25rem 1rem;
-  margin: 1.2rem 0 0.4rem;
+  gap: var(--space-md) var(--space-sm);
+  margin: var(--space-md) 0 var(--space-2xs);
 }
 
 .gallery figure { margin: 0; }
 
 .gallery a { display: block; color: inherit; text-decoration: none; }
 
+.gallery a img,
+article.doc figure a img { transition: box-shadow 0.15s ease; }
+
+.gallery a:hover img,
+article.doc figure a:hover img {
+  box-shadow: var(--shadow-scan-hover);
+}
+
 .gallery img { max-width: 100%; }
 
 .gallery figcaption {
   color: var(--muted);
-  font-size: 0.88rem;
+  font-size: var(--text-xs);
 }
 
 main.wide { max-width: none; }
 
-main.wide > p { max-width: 40rem; }
+main.wide > p { max-width: var(--measure); }
 
 .note {
-  margin-top: 1.5rem;
+  margin-top: var(--space-md);
   color: var(--muted);
-  font-size: 0.92rem;
+  font-size: var(--text-sm);
 }
 
 article.doc {
-  margin: 0 0 2.6rem;
-  scroll-margin-top: 4.5rem;
+  margin: 0 0 var(--space-xl);
 }
 
 .prose p.jump {
-  margin: 0 0 1.8rem;
+  margin: 0 0 var(--space-lg);
   color: var(--muted);
-  font-size: 0.95rem;
+  font-size: var(--text-sm);
 }
 
 p.jump a {
   display: inline-block;
   min-width: 2.2rem;
-  padding: 0.2rem 0;
+  padding: var(--space-3xs) 0;
+  font-variant-numeric: tabular-nums;
 }
 
 ol.jump {
-  margin: 0 0 1.8rem;
+  margin: 0 0 var(--space-lg);
   padding: 0;
   list-style: none;
-  font-size: 0.95rem;
-  line-height: 1.45;
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
 }
 
-ol.jump li { margin: 0.3rem 0; }
+ol.jump li { margin: var(--space-2xs) 0; }
 
 .prose p.top {
   margin: 0;
-  font-size: 0.95rem;
+  font-size: var(--text-sm);
 }
 
 article.doc h2 {
-  margin: 0 0 0.7rem;
-  font-family: "Cormorant Garamond", "Palatino Linotype", Palatino, serif;
+  margin: 0 0 var(--space-xs);
+  font-family: var(--font-display);
   font-weight: 500;
-  font-size: 1.55rem;
-  line-height: 1.2;
+  font-size: var(--text-2xl);
+  line-height: var(--leading-tight);
+  text-wrap: balance;
 }
 
 article.doc figure {
@@ -430,34 +839,36 @@ article.doc figure a { display: block; }
 
 article.doc figure img {
   display: block;
-  width: auto;
   max-width: 100%;
   height: auto;
-  margin: 0.35rem 0 0.3rem;
-  background: #fff;
-  box-shadow: 0 1px 5px rgba(34, 28, 24, 0.18);
+  margin: var(--space-2xs) 0;
+  background: var(--scan-bg);
+  box-shadow: var(--shadow-scan);
 }
 
 .transcript {
-  margin: 0.85rem 0 0;
-  padding: 0.15rem 0 0.15rem 0.9rem;
-  border-left: 2px solid var(--line);
+  margin: var(--space-sm) 0 0;
+  padding: var(--space-3xs) 0;
+  padding-inline-start: var(--space-sm);
+  border-inline-start: 2px solid var(--line);
   white-space: pre-wrap;
-  font-size: 0.98rem;
-  line-height: 1.55;
+  /* Long unbroken tokens wrap instead of running off narrow screens. */
+  overflow-wrap: break-word;
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
 }
 
 .transcript + .transcript {
-  margin-top: 1.3rem;
+  margin-top: var(--space-md);
 }
 
 .shaky {
-  margin: 0.45rem 0 0;
+  margin: var(--space-2xs) 0 0;
   color: var(--muted);
-  font-size: 0.88rem;
+  font-size: var(--text-xs);
 }
 
-main figure { margin: 0 0 1.4rem; }
+main figure { margin: 0 0 var(--space-md); }
 
 main figure img {
   display: block;
@@ -466,21 +877,22 @@ main figure img {
 }
 
 footer.colophon {
-  margin-top: 2.6rem;
-  padding-top: 1rem;
+  margin-top: var(--space-xl);
+  padding-top: var(--space-sm);
   border-top: 1px solid var(--line);
   color: var(--muted);
-  font-size: 0.9rem;
+  font-size: var(--text-xs);
 }
 
-footer.colophon p { margin: 0.3rem 0; }
+footer.colophon p { margin: var(--space-2xs) 0; }
 
 @media (max-width: 800px) {
+  :root { --gutter: 1.25rem; }
   header {
     flex-direction: row;
     align-items: center;
-    gap: 0.85rem;
-    padding: 0.55rem 1rem;
+    gap: var(--space-sm);
+    padding: var(--space-xs) var(--gutter);
   }
   .brand { flex: none; }
   nav {
@@ -488,12 +900,12 @@ footer.colophon p { margin: 0.3rem 0; }
     flex: 1;
     flex-wrap: nowrap;
     justify-content: flex-start;
-    gap: 0 0.9rem;
+    gap: 0 var(--space-sm);
     width: auto;
     max-width: none;
     min-width: 0;
     overflow-x: auto;
-    padding-right: 1.2rem;
+    padding-inline-end: 1.2rem;
     scrollbar-width: none;
     -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 1.2rem), transparent);
     mask-image: linear-gradient(to right, #000 calc(100% - 1.2rem), transparent);
@@ -502,13 +914,37 @@ footer.colophon p { margin: 0.3rem 0; }
     -webkit-mask-image: linear-gradient(to right, transparent, #000 1.2rem, #000 calc(100% - 1.2rem), transparent);
     mask-image: linear-gradient(to right, transparent, #000 1.2rem, #000 calc(100% - 1.2rem), transparent);
   }
+  /* Right-to-left: the nav starts on the right, so the fades swap sides. */
+  [dir="rtl"] nav {
+    -webkit-mask-image: linear-gradient(to left, #000 calc(100% - 1.2rem), transparent);
+    mask-image: linear-gradient(to left, #000 calc(100% - 1.2rem), transparent);
+  }
+  [dir="rtl"] nav.scrolled {
+    -webkit-mask-image: linear-gradient(to left, transparent, #000 1.2rem, #000 calc(100% - 1.2rem), transparent);
+    mask-image: linear-gradient(to left, transparent, #000 1.2rem, #000 calc(100% - 1.2rem), transparent);
+  }
   nav::-webkit-scrollbar { display: none; }
   nav a { margin: 0; white-space: nowrap; }
-  main { padding: 1.5rem 1.25rem 3rem; }
+  /* With a language switcher: the brand and the switcher share the top
+     row, and the nav gets the full width of a second row. */
+  header:has(.langs) {
+    flex-wrap: wrap;
+    row-gap: var(--space-2xs);
+  }
+  header:has(.langs) nav {
+    order: 1;
+    flex: 1 0 100%;
+    margin-inline-end: 0;
+  }
+  html:has(header .langs) { scroll-padding-top: 6rem; }
+  main { padding: var(--space-md) var(--gutter) var(--space-xl); }
+  .event { grid-template-columns: 1fr; gap: var(--space-3xs); }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  .gallery a img,
+  article.doc figure a img { transition: none; }
 }
 
 @media print {

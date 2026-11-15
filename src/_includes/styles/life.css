@@ -1,0 +1,2 @@
+    /* Rules for the year-by-year biography; the shared look, including .event and the sources list, comes from site.css. */
+    h2 { margin-top: var(--space-xl); text-wrap: balance; }

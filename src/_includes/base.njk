@@ -1,0 +1,74 @@
+{%- set L = languages[lang] -%}
+{%- set stem = page.url | langStem -%}
+{%- set isHome = stem == "index.html" -%}
+<!DOCTYPE html>
+<html lang="{{ lang }}"{% if L.dir == "rtl" %} dir="rtl"{% endif %}>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#e6dccb">
+  <title>{{ title | safe }}</title>
+  <meta name="description" content="{{ description | safe }}">
+{%- if noindex %}
+  <meta name="robots" content="noindex">
+{%- else %}
+  <link rel="canonical" href="{{ page.url | absoluteUrl(site.url) }}">
+{%- for code, other in languages %}
+  <link rel="alternate" hreflang="{{ code }}" href="{{ page.url | langUrl(code) | absoluteUrl(site.url) }}">
+{%- endfor %}
+  <link rel="alternate" hreflang="x-default" href="{{ page.url | langUrl('ru') | absoluteUrl(site.url) }}">
+  <meta property="og:type" content="{{ 'website' if isHome else 'article' }}">
+  <meta property="og:site_name" content="{{ L.name }}">
+  <meta property="og:locale" content="{{ L.ogLocale }}">
+{%- for code, other in languages %}{% if code != lang %}
+  <meta property="og:locale:alternate" content="{{ other.ogLocale }}">
+{%- endif %}{% endfor %}
+  <meta property="og:title" content="{{ title | safe }}">
+  <meta property="og:description" content="{{ description | safe }}">
+  <meta property="og:url" content="{{ page.url | absoluteUrl(site.url) }}">
+  <meta property="og:image" content="{{ '/images/moisey.jpg' | absoluteUrl(site.url) }}">
+  <meta property="og:image:width" content="544">
+  <meta property="og:image:height" content="848">
+  <meta name="twitter:card" content="summary_large_image">
+{%- endif %}
+{%- if isHome and not noindex %}
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"{{ L.name }}","birthDate":"1908","deathDate":"1984","url":"{{ page.url | absoluteUrl(site.url) }}","image":"{{ '/images/moisey.jpg' | absoluteUrl(site.url) }}"}</script>
+{%- endif %}
+{#- The body text face for the page's script: Literata Cyrillic or Latin, Noto Serif Hebrew. #}
+  <link rel="preload" href="{{ root }}fonts/{{ {ru: 'literata-cyrillic-opsz-normal', en: 'literata-latin-opsz-normal', he: 'noto-serif-hebrew-hebrew-wght-normal'}[lang] }}.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="icon" href="{{ root }}favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="{{ root }}site.css?v={{ assets.siteCss }}">
+{%- if headStyle %}
+  <style>
+{% include "styles/" + headStyle %}  </style>
+{%- endif %}
+</head>
+<body>
+  <a class="skip" href="#{{ skipTarget }}">{{ skipLabel }}</a>
+  <div class="sheet">
+
+    <header>
+      <a class="brand" href="{{ brandHref }}">{{ L.home }}</a>
+      <nav aria-label="{{ L.sections }}">
+{%- for item in nav %}
+        <a href="{{ navPrefix }}{{ item.href }}"{% if item.key == section %} aria-current="page"{% endif %}>{{ item.label if lang == "ru" else item[lang] }}</a>
+{%- endfor %}
+      </nav>
+      <script>(function(){var n=document.querySelector("header nav"),a=n&&n.querySelector("[aria-current]");if(!n)return;function f(){n.classList.toggle("scrolled",Math.abs(n.scrollLeft)>0)}n.addEventListener("scroll",f,{passive:true});n.addEventListener("focusin",function(e){var r=e.target.getBoundingClientRect(),b=n.getBoundingClientRect(),m=32;if(r.width>b.width-2*m)n.scrollLeft+=(r.left+r.right-b.left-b.right)/2;else if(r.left<b.left+m)n.scrollLeft-=b.left+m-r.left;else if(r.right>b.right-m)n.scrollLeft+=r.right-b.right+m;});if(a&&n.scrollWidth>n.clientWidth){var r=a.getBoundingClientRect(),b=n.getBoundingClientRect();n.scrollLeft+=document.dir=="rtl"?r.right-b.right+24:r.left-b.left-24;}f();})();</script>
+{%- if not noindex %}
+      <p class="langs" dir="ltr">
+{%- for code, other in languages %}
+{%- if code == lang %}
+        <span lang="{{ code }}" translate="no" aria-current="true">{{ other.label }}</span>
+{%- else %}
+        <a href="{{ root }}{{ page.url | inLang(code) }}" lang="{{ code }}" hreflang="{{ code }}" translate="no">{{ other.label }}</a>
+{%- endif %}
+{%- endfor %}
+      </p>
+{%- endif %}
+    </header>
+
+    <main id="{{ mainId }}"{% if mainClass %} class="{{ mainClass }}"{% endif %}>{{ content | safe }}</main>
+  </div>
+</body>
+</html>

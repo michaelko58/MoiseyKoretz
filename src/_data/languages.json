@@ -1,0 +1,26 @@
+{
+  "ru": {
+    "label": "Русский",
+    "dir": "ltr",
+    "ogLocale": "ru_RU",
+    "name": "Моисей Абрамович Корец",
+    "home": "Главная",
+    "sections": "Разделы"
+  },
+  "en": {
+    "label": "English",
+    "dir": "ltr",
+    "ogLocale": "en_US",
+    "name": "Moisey Abramovich Korets",
+    "home": "Home",
+    "sections": "Sections"
+  },
+  "he": {
+    "label": "עברית",
+    "dir": "rtl",
+    "ogLocale": "he_IL",
+    "name": "משה אברמוביץ׳ קורץ",
+    "home": "ראשי",
+    "sections": "מדורים"
+  }
+}

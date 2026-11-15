@@ -1,0 +1,49 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "eleventy",
+  "installCommand": "npm ci",
+  "buildCommand": "npm run build",
+  "outputDirectory": "_site",
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "Content-Security-Policy", "value": "default-src 'self'; script-src 'self' 'sha256-YG4kgNmJYF/CdhMG7fWw6u0S8Dpa5qMmBWCXFEAyrgY='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests" },
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "Permissions-Policy", "value": "accelerometer=(), browsing-topics=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()" }
+      ]
+    },
+    {
+      "source": "/img/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/(images|fonts)/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=2592000, stale-while-revalidate=86400" }
+      ]
+    },
+    {
+      "source": "/site.css",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/favicon.svg",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=86400, stale-while-revalidate=604800" }
+      ]
+    }
+  ],
+  "redirects": [
+    { "source": "/pages/%D0%B4%D0%BE%D0%BF%D1%80%D0%BE%D1%81%D0%B4%D0%B0%D0%B2%D0%B8%D0%B4%D0%B0%D0%BB%D0%B0%D0%BD%D0%B4%D0%B0%D1%83.html", "destination": "/pages/%D0%B4%D0%BE%D0%BF%D1%80%D0%BE%D1%81%D0%BB%D0%B4%D0%BB%D0%B0%D0%BD%D0%B4%D0%B0%D1%833%D0%B0%D0%B2%D0%B3%D1%83%D1%81%D1%82%D0%B01938.html", "permanent": true },
+    { "source": "/pages/допросдавидаландау.html", "destination": "/pages/%D0%B4%D0%BE%D0%BF%D1%80%D0%BE%D1%81%D0%BB%D0%B4%D0%BB%D0%B0%D0%BD%D0%B4%D0%B0%D1%833%D0%B0%D0%B2%D0%B3%D1%83%D1%81%D1%82%D0%B01938.html", "permanent": true },
+    { "source": "/pages/%D0%B2%D0%BE%D1%81%D0%BF%D0%BE%D0%BC%D0%B8%D0%BD%D0%B0%D0%BD%D0%B8%D1%8F.html", "destination": "/pages/ssylka.html", "permanent": true },
+    { "source": "/pages/воспоминания.html", "destination": "/pages/ssylka.html", "permanent": true }
+  ]
+}

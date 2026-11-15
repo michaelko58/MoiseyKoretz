@@ -1,0 +1,6 @@
+[
+  { "key": "life", "href": "жизнь.html", "label": "Жизнь", "en": "Life", "he": "חיים" },
+  { "key": "works", "href": "стихиразныхлет.html", "label": "Творчество", "en": "Work", "he": "יצירה" },
+  { "key": "documents", "href": "документы.html", "label": "Документы, публикации и воспоминания", "en": "Documents, publications and memoirs", "he": "מסמכים, פרסומים וזיכרונות" },
+  { "key": "photos", "href": "фотографии.html", "label": "Фотографии", "en": "Photographs", "he": "תצלומים" }
+]

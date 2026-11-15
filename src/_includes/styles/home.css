@@ -1,0 +1,243 @@
+    /* Rules for the first page only; the shared look and the tokens come from site.css. */
+    body { font-optical-sizing: auto; }
+
+    main { padding: 0 var(--gutter) var(--space-3xl); max-width: none; }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(220px, 0.72fr);
+      gap: var(--space-2xl);
+      align-items: start;
+      padding: var(--space-2xl) 0 var(--space-xl);
+    }
+
+    h1 {
+      margin: 0;
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: clamp(3.4rem, 7vw, 5.7rem);
+      line-height: 0.88;
+      letter-spacing: -0.02em;
+      text-wrap: balance;
+    }
+
+    /* Frank Ruhl Libre is wider than Cormorant: keep «אברמוביץ׳» on one line. */
+    html[lang="he"] .hero h1 {
+      font-size: clamp(2.05rem, 8.2vw, 5.4rem);
+      line-height: 1.05;
+    }
+
+    .lede {
+      max-width: var(--measure-narrow);
+      margin: var(--space-lg) 0 0;
+      font-size: var(--text-md);
+      line-height: var(--leading-body);
+    }
+
+    main figure { margin: var(--space-xl) 0 0; }
+
+    main figure img {
+      display: block;
+      width: min(100%, 320px);
+      max-width: none;
+      margin-inline-start: auto;
+      height: auto;
+      box-shadow: var(--shadow-lift);
+    }
+
+    figcaption {
+      margin-top: var(--space-xs);
+      text-align: end;
+      color: var(--muted);
+      font-size: var(--text-xs);
+    }
+
+    figure.spot { margin: var(--space-sm) 0 0; }
+
+    figure.spot img {
+      width: min(100%, 200px);
+      margin-inline-start: 0;
+      box-shadow: var(--shadow-lift-sm);
+    }
+
+    figure.spot figcaption { text-align: start; }
+
+    figure.paper { margin: var(--space-md) 0 var(--space-2xs); }
+
+    figure.paper > a { display: block; text-decoration: none; }
+
+    figure.paper > a img { transition: border-color 0.15s ease, box-shadow 0.15s ease; }
+
+    figure.paper > a:hover img {
+      border-color: var(--seal);
+      box-shadow: var(--shadow-lift-hover);
+    }
+
+    figure.paper img {
+      width: 100%;
+      max-width: 680px;
+      margin-inline-start: 0;
+      background: var(--scan-bg);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-lift);
+    }
+
+    figure.paper figcaption {
+      text-align: start;
+      max-width: var(--measure);
+    }
+
+    .exhibits {
+      display: grid;
+      grid-template-columns: minmax(0, 1.45fr) minmax(180px, 0.72fr);
+      gap: var(--space-md) var(--space-lg);
+      align-items: start;
+      margin-top: var(--space-2xs);
+    }
+
+    .event .exhibits { grid-column: 1 / -1; }
+
+    .exhibits figure.paper { margin: 0; min-width: 0; }
+
+    .exhibits figure.paper img { max-width: 640px; }
+
+    .exhibits figure.paper.face img { max-width: 420px; }
+
+    h2 {
+      margin: 0 0 var(--space-2xs);
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: var(--text-display);
+      line-height: 1;
+      letter-spacing: -0.02em;
+      text-wrap: balance;
+    }
+
+    .life, .voice, .archive { padding-top: var(--space-2xl); }
+
+    .quote {
+      margin: var(--space-md) 0 0;
+      padding: 0;
+      border: 0;
+    }
+
+    .more { margin: var(--space-md) 0 0; }
+
+    .quote p {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: clamp(1.55rem, 2.4vw, 1.95rem);
+      font-style: italic;
+      font-weight: 500;
+      line-height: var(--leading-snug);
+    }
+
+    .quote footer {
+      margin-top: var(--space-xs);
+      color: var(--muted);
+      font-size: var(--text-sm);
+      font-style: normal;
+    }
+
+    .quote.long p {
+      font-family: var(--font-text);
+      font-size: var(--text-md);
+      font-weight: 400;
+      font-style: italic;
+      line-height: var(--leading-body);
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-xl);
+      padding-top: var(--space-md);
+      border-top: 1px solid var(--line);
+    }
+
+    .split.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+
+    .split h3 {
+      margin: 0 0 var(--space-2xs);
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      font-weight: 500;
+      text-wrap: balance;
+    }
+
+    .split p { margin: 0; }
+    .split p + p { margin-top: var(--space-xs); }
+
+    .catalog {
+      list-style: none;
+      margin: var(--space-md) 0 0;
+      padding: 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .catalog li {
+      display: grid;
+      grid-template-columns: 8.5rem minmax(0, 1fr);
+      gap: var(--space-sm);
+      padding: var(--space-sm) 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .catalog span {
+      color: var(--seal);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .groups {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-lg) var(--space-xl);
+      margin-top: var(--space-md);
+    }
+
+    .groups h3 {
+      margin: 0 0 var(--space-xs);
+      font-size: var(--text-2xs);
+      font-weight: 620;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-wrap: balance;
+    }
+
+    .groups ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .groups li {
+      padding: var(--space-xs) 0;
+      border-top: 1px solid var(--line);
+    }
+
+    footer.colophon {
+      margin-top: var(--space-2xl);
+      padding-top: var(--space-md);
+    }
+
+    @media (max-width: 800px) {
+      header { width: 100%; max-width: 100%; }
+      main { padding-bottom: var(--space-2xl); }
+      .hero { grid-template-columns: 1fr; gap: var(--space-lg); padding-top: var(--space-lg); }
+      main figure { margin-top: var(--space-2xs); }
+      main figure img { margin-inline-start: 0; width: min(100%, 260px); }
+      figcaption { text-align: start; }
+      .catalog li { grid-template-columns: 1fr; gap: var(--space-3xs); }
+      .split, .split.cols-3, .groups, .exhibits { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      figure.paper > a img { transition: none; }
+    }
+
+    @media print {
+      .sheet { box-shadow: none; }
+      header { background: white; }
+      figure img, figure.paper img { box-shadow: none; }
+    }
